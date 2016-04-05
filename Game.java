@@ -96,7 +96,7 @@ public class Game
         }
         else if (commandWord.equals("go")) {
             goRoom(command);
-            if(carte.currentRoom.getDescription().equals("in the cible")) wantToQuit = true;
+            if(carte.currentRoom.getDescription().equals("in the Satan fighting arena")) wantToQuit = true;
         }
         else if (commandWord.equals("quit")) {
             wantToQuit = quit(command);
