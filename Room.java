@@ -38,7 +38,7 @@ public class Room
     /**
      * la Room qui mene a la sortie.
      */
-    public Room directSortie;        
+    public String directSortie;        
     /**
      * objet dans la room ou null.
      */
@@ -64,7 +64,10 @@ public class Room
      * @param west The west exit.
      * @param guide the direction to target.
      */
-    public void setExits(Room north, Room east, Room south, Room west, Room guide) 
+    public void setExits(Room north, 
+                        Room east, 
+                        Room south, 
+                        Room west, String guide) 
     {
         if (north != null)
             northExit = north;
@@ -80,6 +83,28 @@ public class Room
     
     public void setObjet(Objet obj){
         this.objet = obj;
+    }
+    
+    
+    
+    public Room nextRoom(String r) {
+        
+                 Room nextRoom = null;
+                if (r.equals("north")) {
+                nextRoom = northExit;
+                }
+                if (r.equals("east")) {
+                        nextRoom = eastExit;
+                    }
+                if (r.equals("south")) {
+                        nextRoom = southExit;
+                    }
+                if (r.equals("west")) {
+                        nextRoom = westExit;
+                    }
+        
+        return nextRoom ;
+        
     }
 
     /**

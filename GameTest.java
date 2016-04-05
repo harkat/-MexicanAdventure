@@ -137,8 +137,8 @@ public class GameTest
     {
         String data = "quit\n";
         System.setIn(new ByteArrayInputStream(data.getBytes()));
-
-        Game g = new Game();
+        Carte carte = new Carte();
+        Game g = new Game(carte);
         g.play();
 
         assertThat(outContent.toString(), containsString("Welcome to the World of Zuul!"));
@@ -150,7 +150,8 @@ public class GameTest
         String data = "help\nquit\n";
         System.setIn(new ByteArrayInputStream(data.getBytes()));
 
-        Game g = new Game();
+        Carte carte = new Carte();
+        Game g = new Game(carte);
         g.play();
 
         assertThat(outContent.toString(), containsString("Your command words are:"));
@@ -172,7 +173,8 @@ public class GameTest
         
         System.setIn(new ByteArrayInputStream(buff.toString().getBytes()));
 
-        Game g = new Game();
+        Carte carte = new Carte();
+        Game g = new Game(carte);
         g.play();
 
         String[] lines = outContent.toString().split("\n");
