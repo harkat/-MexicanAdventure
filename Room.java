@@ -34,6 +34,15 @@ public class Room
      * Room at the north of that room or null.
      */
     public Room westExit;
+    
+    /**
+     * la Room qui mene a la sortie.
+     */
+    public Room directSortie;        
+    /**
+     * objet dans la room ou null.
+     */
+    public Objet objet;
 
     /**
      * Create a room described "description". Initially, it has
@@ -53,8 +62,9 @@ public class Room
      * @param east The east east.
      * @param south The south exit.
      * @param west The west exit.
+     * @param guide the direction to target.
      */
-    public void setExits(Room north, Room east, Room south, Room west) 
+    public void setExits(Room north, Room east, Room south, Room west, Room guide) 
     {
         if (north != null)
             northExit = north;
@@ -64,6 +74,12 @@ public class Room
             southExit = south;
         if (west != null)
             westExit = west;
+        
+        directSortie = guide;
+    }
+    
+    public void setObjet(Objet obj){
+        this.objet = obj;
     }
 
     /**
