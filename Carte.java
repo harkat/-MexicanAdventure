@@ -42,11 +42,11 @@ public class Carte
         FrankLeBrageLab.setExits(circus, ferryBoat, airplane, casinoClub, "south, airplane");
         ferryBoat.setExits(null, null, null, FrankLeBrageLab, "south ; vers FranckLeBarge");
         
-        bar.setExits(null, null, ShaolineDojo, bikersClub, "south; vers ShaolineDojo");
+        bar.setExits(null, null, ShaolineDojo, bikersClub, "south; vers Shaoline Dojo");
         bikersClub.setExits(null, bar, null, wildForest, "west; vers wildForest");
         wildForest.setExits(null, bikersClub, zoo, null, "south; vers le zoo");
-        casinoClub.setExits(null, FrankLeBrageLab, SatanFightArena, null, "south; vers SatanFightArena");
-        airplane.setExits(FrankLeBrageLab, null, null, SatanFightArena, "west; vers SatanFightArena");
+        casinoClub.setExits(null, FrankLeBrageLab, SatanFightArena, null, "south; vers Satan Fight Arena");
+        airplane.setExits(FrankLeBrageLab, null, null, SatanFightArena, "west; vers Satan Fight Arena");
         SatanFightArena.setExits(casinoClub, airplane, null, null, null);
         
         //mettre des objets

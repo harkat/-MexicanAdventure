@@ -84,7 +84,7 @@ public class Dialogue
     {
         System.out.println(); 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Bienvenu au laboratoire du savon fou FranckLeBarge !"+"\n"+
+        System.out.println("Bienvenu au laboratoire du savant fou FranckLeBarge !"+"\n"+
             "si tu veux que je te dise où se trouve la catcheur mafieux Satan"+"\n"+
             "faut répondre à une question scientifique... ");
         System.out.print("appuyer sur \"ENTER\" pour cotinuer..."); 
