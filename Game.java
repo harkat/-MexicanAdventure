@@ -72,10 +72,10 @@ public class Game
     {
         Scanner sc = new Scanner(System.in);
         System.out.println();
-        System.out.println("Salut "+this.hero.getNom()+", Soiyez le bienvenue dans les aventures du Catcheur Mexicain!");
+        System.out.println("Salut "+this.hero.getNom()+", Soyez le bienvenue dans les aventures du Catcheur Mexicain!");
         System.out.print("les aventures du Catcheur Mexicain est un nouveau jeux, ");
         System.out.println("super cool que même ceux de chez Ubisoft envient.");
-        System.out.println("pour avoir de l'aide sur les commandes, tapez : help.");
+        System.out.println("pour avoir de l'aide sur les commandes, tapez : aide.");
         System.out.println();
         System.out.print("appuyez sur n'importe quelle touche pour commencer..."); 
         sc.nextLine();
