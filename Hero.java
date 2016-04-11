@@ -7,27 +7,57 @@
  */
 public class Hero implements Personnage
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class Hero
-     */
-    public Hero()
-    {
-        // initialise instance variables
-        x = 0;
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
-}
+    
+	/**
+	 * attributs de Hero
+	 */
+	 private String nom ;
+	 private double ptVie ;
+	/**
+	 * constructeur
+	 */
+	 public Hero (String n) 
+	 {
+		this.nom = n ;
+		this.ptVie = 5.00 ;
+	 }
+	 /**
+	 * méthode getNon qui terourne le nom du personnage
+	 */
+	 public String getNom() {
+		 return this.nom ;
+	 }
+	 /**
+	 * méthode etreMort qui terourne si le personnage est mort ou pas
+	 */
+	 public boolean etreMort() {
+		 return (this.ptVie <= 0 ) ;
+	 }
+	 /**
+	 * méthode getVie qui terourne les points de vie du personnage
+	 */
+	 public double getVie() {
+		 return this.ptVie ;
+	 }
+	 /**
+	 * méthode getVie qui terourne les points de vie du personnage
+	 */
+	 public void ajouterVie (double num) {
+		 this.ptVie = this.ptVie + num ;
+		
+	 }
+	  public double subirFrappe (double coup) {
+		 this.ajouterVie (- coup) ;
+		 double blessure = this.getVie () / 2 ;
+		 return blessure ;
+	 }
+	 /**
+	 * méthode attaquer quand un monstre attaque un autre personnage
+	 */
+	 public void attaquer (Personnage v) {
+		 double coup = getVie () / 2 ;
+		 double blessure = v.subirFrappe (coup) ;
+		 this.ajouterVie (-blessure) ;
+	 }
+	 
+}      

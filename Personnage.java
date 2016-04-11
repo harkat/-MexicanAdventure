@@ -1,17 +1,15 @@
-
-/**
- * Write a description of interface Personnage here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ /**
+ * interface Personnage qui caractérise tous personnages
  */
-public interface Personnage
-{
-    /**
-     * An example of a method header - replace this comment with your own
-     * 
-     * @param  y    a sample parameter for a method
-     * @return        the result produced by sampleMethod 
-     */
-    int sampleMethod(int y);
+public interface Personnage {
+	
+	/**
+	* méthode
+	*/
+	public double subirFrappe (double coup) ;
+	
+	/**
+	* méthode
+	*/		
+	public void attaquer (Personnage p) ;
 }
