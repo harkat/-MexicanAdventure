@@ -2,17 +2,14 @@
 /**
  * contient la methode principale
  *
- * @author  Groupe 6
- * @version V2.0
+ * @author (votre nom)
+ * @version (un numéro de version ou une date)
  */
 public class Principale
 {
-    /**
-     * methode principale
-     * @param args tableau d'arguments
-     */
-    public static void main(String[] args) {
-        Game game = new Game();
+    public static void main(String[] args){
+        Carte carte = new Carte();
+        Game game = new Game(carte);
         game.play();        
     }
 }

@@ -2,8 +2,8 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-//Packages for using the assertion kind : assertThat(value, matcher statement)
-//assertThat is more readable than assertEquals and has more informative message
+// Packages for using the assertion kind : assertThat(value, matcher statement)
+// assertThat is more readable than assertEquals and has more informative message
 import static org.junit.matchers.JUnitMatchers.*;
 import static org.hamcrest.CoreMatchers.*;
 // Packages for redirecting System.out and System.err to test values
@@ -37,10 +37,8 @@ import java.util.Scanner;
 public class GameTest
 {
     // yteStream pour capturer les sorties et erreurs standards
-    private final ByteArrayOutputStream outContent = 
-        new ByteArrayOutputStream();
-    private final ByteArrayOutputStream errContent = 
-        new ByteArrayOutputStream();
+    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 
     private final InputStream stdin = System.in;
     private final PrintStream stdout = System.out;
@@ -90,11 +88,9 @@ public class GameTest
         Scanner scanner = new Scanner(System.in);
         try {
             assertThat(scanner.nextLine(), is(data.trim()));
-        } 
-        catch (java.util.NoSuchElementException e) {
+        } catch (java.util.NoSuchElementException e) {
             fail(e.getMessage());
-        } 
-        catch (IllegalStateException e) {
+        } catch (IllegalStateException e) {
             fail(e.getMessage());
         }
     }
@@ -136,41 +132,32 @@ public class GameTest
         //Libérez ici les ressources engagées par setUp()
     }
 
-    /**
-     * Teste la creation du jeu et la sortie
-     */
     @Test
     public void createGamePlayAndQuit()
     {
         String data = "quit\n";
         System.setIn(new ByteArrayInputStream(data.getBytes()));
-        Game g = new Game();
+        Carte carte = new Carte();
+        Game g = new Game(carte);
         g.play();
 
-        assertThat(outContent.toString(),
-            containsString("Welcome to the World of Zuul!"));
-        assertThat(outContent.toString(),
-            containsString("Thank you for playing.  Good bye."));
+        assertThat(outContent.toString(), containsString("Welcome to the World of Zuul!"));
+        assertThat(outContent.toString(), containsString("Thank you for playing.  Good bye."));
     }
 
-    /**
-     * Teste le du jeu et le menu help
-     */
     @Test
     public void playGameAndHelp() {
         String data = "help\nquit\n";
         System.setIn(new ByteArrayInputStream(data.getBytes()));
 
-        Game g = new Game();
+        Carte carte = new Carte();
+        Game g = new Game(carte);
         g.play();
 
-        assertThat(outContent.toString(),
-            containsString("Your command words are:"));
+        assertThat(outContent.toString(), containsString("Your command words are:"));
+
     }
 
-    /**
-     * Teste le deplacement dans les Rooms
-     */
     @Test
     public void visitAllRooms() {
         StringBuffer buff = new StringBuffer();
@@ -186,7 +173,8 @@ public class GameTest
         
         System.setIn(new ByteArrayInputStream(buff.toString().getBytes()));
 
-        Game g = new Game();
+        Carte carte = new Carte();
+        Game g = new Game(carte);
         g.play();
 
         String[] lines = outContent.toString().split("\n");
@@ -194,8 +182,7 @@ public class GameTest
         // Room theater
         assertThat(lines[7], containsString("in a lecture theater"));
         // Room outside
-        assertThat(lines[9],
-            containsString("outside the main entrance of the university"));
+        assertThat(lines[9], containsString("outside the main entrance of the university"));
         // Room lab
         assertThat(lines[11], containsString("in a computing lab"));
         // Room office
@@ -203,8 +190,7 @@ public class GameTest
         // Room pub
         assertThat(lines[19], containsString("in the campus pub"));
         // End of program
-        assertThat(lines[23],
-            containsString("Thank you for playing.  Good bye."));
+        assertThat(lines[23], containsString("Thank you for playing.  Good bye."));
 
     }
 }

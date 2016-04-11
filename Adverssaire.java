@@ -7,28 +7,18 @@
  */
 public abstract class Adverssaire implements Personnage
 {
+    // instance variables - replace the example below with your own
+    private int x;
+
     /**
-     * le nom du Personnage
-     * de type chaine de caracteres 
+     * An example of a method - replace this comment with your own
+     * 
+     * @param  y    a sample parameter for a method
+     * @return        the sum of x and y 
      */
-    private String nom;
-    /**
-     * les points de vie du Personnage
-     * de type reel 
-     */
-    protected double ptsVie;
-    /**
-     * constructeur initialise avec les parametres
-     * @param n nom du Personnage cree
-     * @param pv points de vie du Personnage cree
-     */
-    public Adverssaire(String n, double pv) {
-        this.ptsVie = pv;
-        if (n == null) {
-            this.nom = "dark vador";
-        }
-        else {
-            this.nom = n;
-        }
+    public int sampleMethod(int y)
+    {
+        // put your code here
+        return x + y;
     }
 }

@@ -12,22 +12,22 @@ import java.util.Scanner;
  *  rooms, creates the parser and starts the game.  It also evaluates and
  *  executes the commands that the parser returns.
  * 
- * @author  Groupe 6
- * @version V2.0
+ * @author  Michael Kölling and David J. Barnes
+ * @version 2011.07.31
  */
 
 public class Game 
 {
     private Parser parser;
     private Carte carte;
-    private Hero hero ;
+	private Hero hero ;
     
     /**
      * Create the game and initialise its internal map.
      */
-    public Game() 
+    public Game(Carte crt) 
     {
-        this.carte = new Carte();
+        this.carte = crt;
         this.parser = new Parser();
         
     }
@@ -39,31 +39,30 @@ public class Game
     {            
         System.out.print("Donner un nom à votre Hero : "); 
         Scanner sc = new Scanner(System.in);
-        String str = sc.nextLine();
-        this.hero = new Hero (str) ;
+	    String str = sc.nextLine();
+	    this.hero = new Hero (str) ;
         printWelcome();
         
         Dialogue diag = new Dialogue(carte.currentRoom, this.hero) ;
         diag.dialogueMaker();
         boolean finished = false;
-        while (!finished && !this.hero.etreMort() ) {
+        while (!finished && ! this.hero.etreMort() ) {
             Command command = parser.getCommand();
-            if (command.getSecondWord() != null) {
+            if (command.getSecondWord()!= null) {
                 String direction = command.getSecondWord();
                 Room nextRoom = carte.currentRoom.nextRoom(direction) ;
-                if (nextRoom != null) {
+                if (nextRoom != null){
                     diag = new Dialogue(nextRoom, this.hero) ;
                     diag.dialogueMaker();
                 }
             }
             finished = processCommand(command);
         }   
-        if (this.hero.etreMort()) {
-            System.out.println(); 
-            System.out.print("Vous n'avez plus de point de vie, ");
-            System.out.println("vous êtes mort !"); 
-        }
-        System.out.println("Thank you for playing.  Good bye.");       
+		if (this.hero.etreMort()) {
+		    System.out.println(); 
+			System.out.println("Vous n'avez plus de point de vie, vous êtes mort !"); 
+		}
+        System.out.println("Jeu terminé ! Merci d'avoir perdu votre temps sur notre jeu :)");       
     }
 
     /**
@@ -73,28 +72,27 @@ public class Game
     {
         Scanner sc = new Scanner(System.in);
         System.out.println();
-        System.out.println("Hello " + this.hero.getNom() + 
-            ", you are welcome to the Catcheur Adventurs!");
-        System.out.print("the Catcheur Adventurs is a new, ");
-        System.out.println("incredibly not cool adventure game.");
-        System.out.println("Type 'help' if you need help.");
+        System.out.println("Salut "+this.hero.getNom()+", Soit le bienvenue dans les aventures du Catcheur Mexicain!");
+        System.out.print("les aventures du Catcheur Mexicain est un nouveau jeux, ");
+        System.out.println("super cool et que même Ubisoft rêvent d'en développer.");
+        System.out.println("pour avoir de l'aide sur les commandes, tapez : help.");
         System.out.println();
-        System.out.print("hit any button to start the adventure..."); 
+        System.out.print("appuyez sur n'importe quelle touche pour commencer..."); 
         sc.nextLine();
         System.out.println();
-        System.out.println("You are " + carte.currentRoom.getDescription());
-        System.out.print("Exits: ");
+        System.out.println("Vous êtes " + carte.currentRoom.getDescription());
+        System.out.print("Sorties: ");
         if (carte.currentRoom.northExit != null) {
-            System.out.print("north ");
+            System.out.print("nord ");
         }
         if (carte.currentRoom.eastExit != null) {
-            System.out.print("east ");
+            System.out.print("est ");
         }
         if (carte.currentRoom.southExit != null) {
-            System.out.print("south ");
+            System.out.print("sud ");
         }
         if (carte.currentRoom.westExit != null) {
-            System.out.print("west ");
+            System.out.print("ouest ");
         }
         System.out.println();
     }
@@ -109,25 +107,23 @@ public class Game
         boolean wantToQuit = false;
 
         if (command.isUnknown()) {
-            System.out.println("I don't know what you mean...");
+            System.out.println("Je ne comprend ce que vous voulez dire ! vous êtes sou ou quoi ?");
             return false;
         }
 
         String commandWord = command.getCommandWord();
-        if (commandWord.equals("help")) {
+        if (commandWord.equals("aide")) {
             printHelp();
         }
-        else if (commandWord.equals("go")) {
+        else if (commandWord.equals("aller")) {
             goRoom(command);
-            if (carte.currentRoom.description.equals(
-                "in Satan fighting arena")) {
+            if (carte.currentRoom.description.equals("à l'arène finale de combat de Satan")){
                 wantToQuit = true ;
             }
         }
-        else if (commandWord.equals("quit")) {
+        else if (commandWord.equals("quitter")) {
             wantToQuit = quit(command);
         }
-
         return wantToQuit;
     }
 
@@ -140,11 +136,11 @@ public class Game
      */
     private void printHelp() 
     {
-        System.out.println("You are lost. You are alone. You wander");
-        System.out.println("around at the university.");
+        System.out.println("Ne paniquez surtout pas, je suis là pour vous");
+        System.out.println("vous êtes à "+carte.currentRoom.description);
         System.out.println();
-        System.out.println("Your command words are:");
-        System.out.println("   go quit help");
+        System.out.println("Vous pouvez taper : ");
+        System.out.println("aller [sud, est, ouest, nord], quiter, aide");
     }
 
     /** 
@@ -156,7 +152,7 @@ public class Game
     {
         if (!command.hasSecondWord()) {
             // if there is no second word, we don't know where to go...
-            System.out.println("Go where?");
+            System.out.println("Désolé je peux pas deviner la direction ! faut me dire dans quelle direction aller");
             return;
         }
 
@@ -164,45 +160,43 @@ public class Game
 
         // Try to leave current room.
         Room nextRoom = null;
-        if (direction.equals("north")) {
+        if (direction.equals("nord")) {
             nextRoom = carte.currentRoom.northExit;
         }
-        if (direction.equals("east")) {
+        if (direction.equals("est")) {
             nextRoom = carte.currentRoom.eastExit;
         }
-        if (direction.equals("south")) {
+        if (direction.equals("sud")) {
             nextRoom = carte.currentRoom.southExit;
         }
-        if (direction.equals("west")) {
+        if (direction.equals("ouest")) {
             nextRoom = carte.currentRoom.westExit;
         }
 
         if (nextRoom == null) {
-            System.out.println("There is no door!");
+            System.out.println("Il n'y a pas d'accés par cette direction");
         }
         else {
             carte.currentRoom = nextRoom;
-            if (carte.currentRoom.getDescription().equals(
-                "in Satan fighting arena")) {
-                System.out.println("You are " 
-                    + carte.currentRoom.getDescription());
-                System.out.println("Gongratulation, you've reached the target");
-                System.out.println("the game is over");
+            if(carte.currentRoom.getDescription().equals("à l'arène finale de combat de Satan")){
+                System.out.println("Vous êtes enfin arrivé " + carte.currentRoom.getDescription());
+                System.out.println("Félicitation, vous avez atteint la zone finale");
+                System.out.println("Le jeu est terminé");
                 return;
             }            
-            System.out.println("You are " + carte.currentRoom.getDescription());
-            System.out.print("Exits: ");
+            System.out.println("Vous êtes " + carte.currentRoom.getDescription());
+            System.out.print("Sorties: ");
             if (carte.currentRoom.northExit != null) {
-                System.out.print("north ");
+                System.out.print("nord ");
             }
             if (carte.currentRoom.eastExit != null) {
-                System.out.print("east ");
+                System.out.print("est ");
             }
             if (carte.currentRoom.southExit != null) {
-                System.out.print("south ");
+                System.out.print("sud ");
             }
             if (carte.currentRoom.westExit != null) {
-                System.out.print("west ");
+                System.out.print("oust ");
             }            
             System.out.println();          
         }
@@ -217,7 +211,7 @@ public class Game
     private boolean quit(Command command) 
     {
         if (command.hasSecondWord()) {
-            System.out.println("Quit what?");
+            System.out.println("quitter quoi au juste ! si vous voulez abbondoner faut l'écrire tout court");
             return false;
         }
         else {
