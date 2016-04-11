@@ -70,46 +70,48 @@ public class Dialogue
             case "in the airplane" :
             content = this.planeTalk() ;
             break ;       
-
-            case "in Satan fighting arena" :
-            this.satanTalk() ;
-            break ;
-
         }
-        Scanner sc = new Scanner(System.in);
-        System.out.println(); 
-        System.out.println("Salut "+this.hero.getNom()+", soit le bienvenue "
-            +content[0]+"\n"+
-            "si tu veux que je te dise où se"+ 
-            "trouve le catcheur mafieux Satan"+"\n"+
-            "faut répondre à une question... ");
-        System.out.print("appuyer sur \"ENTER\" pour cotinuer..."); 
-        sc.nextLine();
-        System.out.print("Veux-tu répondre à ma question ? (\"yes\" : pour ouais) : ");
-        String str = sc.nextLine();
-        if (str.equals("yes")) {
-            System.out.println ("voici ma question : "); 
-            System.out.print(content[1]);
-            System.out.println ("Choix : "); 
-            System.out.println(content[2]);
-            System.out.print("Quelle est le numéro de la bonne réponse  ? : "); 
-            String str1 = sc.nextLine();
-            if (str1.equals(content[3])){
-                System.out.println("Bien jouer ! le catcheur mafieux SATAN se trouve dans la direction : "+"\n"+
-                    curentRoom.directSortie) ;
-            }
-            else {
-                this.hero.ajouterVie (-1.00);
-                System.out.println("Mauvaise réponse ! je ne peux rien te dire sur SATAN !"+"\n"+
-                    "à la prochaine fois...") ;  
-                System.out.println("Vous avez Perdu 1 point de vie ! vos points de vie sont égale à : "+this.hero.getVie()) ;
-            }   
-        } 
+        
+        if (this.curentRoom.getDescription().equals("in Satan fighting arena" )) {
+            this.finalTalk() ;
+        }
+        
         else {
-            System.out.println("ahaha je comprends que t'as peur mon petit "+this.hero.getNom()+"\n"+
-                "à la prochaine fois...") ;  
-        }           
-        System.out.println();        
+            Scanner sc = new Scanner(System.in);
+            System.out.println(); 
+            System.out.println("Salut "+this.hero.getNom()+", soit le bienvenue "
+                +content[0]+"\n"+
+                "si tu veux que je te dise où se"+ 
+                " trouve le catcheur mafieux Satan\n"+
+                "faut répondre à une question... ");
+            System.out.print("appuyer sur \"ENTER\" pour cotinuer..."); 
+            sc.nextLine();
+            System.out.print("Veux-tu répondre à ma question ? (\"yes\" : pour ouais) : ");
+            String str = sc.nextLine();
+            if (str.equals("yes")) {
+                System.out.println ("voici ma question : "); 
+                System.out.print(content[1]);
+                System.out.println ("Choix : "); 
+                System.out.println(content[2]);
+                System.out.print("Quelle est le numéro de la bonne réponse  ? : "); 
+                String str1 = sc.nextLine();
+                if (str1.equals(content[3])){
+                    System.out.println("Bien jouer ! le catcheur mafieux SATAN se trouve dans la direction : \n"+
+                        curentRoom.directSortie) ;
+                }
+                else {
+                    this.hero.ajouterVie (-1.00);
+                    System.out.println("Mauvaise réponse ! je ne peux rien te dire sur SATAN ! \n"+
+                        "à la prochaine fois...") ;  
+                    System.out.println("Vous avez Perdu 1 point de vie ! il vous reste : "+this.hero.getVie()+" ptVie") ;
+                }   
+            } 
+            else {
+                System.out.println("ahaha je comprends que t'as peur mon petit "+this.hero.getNom()+"\n"+
+                    "à la prochaine fois...") ;  
+            }           
+            System.out.println();   
+        }
     }
 
     /**
@@ -120,7 +122,7 @@ public class Dialogue
         String [] str = {"au laboratoire du savant fou FranckLeBarge", 
         "Combien Font 20 * 5 ? : ",
         " 1-10 \n 2-99 \n 3-100 \n 4-101",
-        "4"} ;
+        "3"} ;
         return str ;    
     }
 
@@ -235,15 +237,15 @@ public class Dialogue
         "quelle est l'altitude minimal en KM  à partir de la quelle l'avion peut voler ? : ",
         " 1- 1000 km \n 2- 8000 km  \n 3- 50 km \n 4- 600 km ",
         "2"} ;
-        return str ;		
+        return str ;        
     }
 
     /**
      *  method 
      */
 
-    public void satanTalk () 
-    {	
+    public void finalTalk () 
+    {   
 
         Scanner sc = new Scanner(System.in);
         System.out.println(); 
@@ -268,6 +270,9 @@ public class Dialogue
             String str2 = sc.nextLine();
             if (str2.contains("kamikaze")){
                 System.out.println("Tu as gagné ! je me remet à toi ! tu peux faire ce que tu veux de moi");
+            }
+            else {
+                System.out.println("Non, ce n'est pas ça ! il va falloir m'affronter dans une version plus améliorée de ce jeu !");
             }
         } 
         System.out.println("**************************************************");

@@ -36,17 +36,17 @@ public class Carte
         Room SatanFightArena = new Room("in Satan fighting arena");
         
         // initialise room exits
-        circus.setExits(null, ShaolineDojo, FrankLeBrageLab, zoo, "south ; vers FranckLeBarge");
-        ShaolineDojo.setExits(bar, null, null, circus, "west; vers Circus");
-        zoo.setExits(wildForest, circus, null, null, "east; vers Circus");
-        FrankLeBrageLab.setExits(circus, ferryBoat, airplane, casinoClub, "south, airplane");
-        ferryBoat.setExits(null, null, null, FrankLeBrageLab, "south ; vers FranckLeBarge");
+        circus.setExits(null, ShaolineDojo, FrankLeBrageLab, zoo, ">> South, vers FranckLeBarge");
+        ShaolineDojo.setExits(bar, null, null, circus, ">> West, vers Circus");
+        zoo.setExits(wildForest, circus, null, null, ">> East, vers Circus");
+        FrankLeBrageLab.setExits(circus, ferryBoat, airplane, casinoClub, ">> South, airplane");
+        ferryBoat.setExits(null, null, null, FrankLeBrageLab, ">> South, vers FranckLeBarge");
         
-        bar.setExits(null, null, ShaolineDojo, bikersClub, "south; vers Shaoline Dojo");
-        bikersClub.setExits(null, bar, null, wildForest, "west; vers wildForest");
-        wildForest.setExits(null, bikersClub, zoo, null, "south; vers le zoo");
-        casinoClub.setExits(null, FrankLeBrageLab, SatanFightArena, null, "south; vers Satan Fight Arena");
-        airplane.setExits(FrankLeBrageLab, null, null, SatanFightArena, "west; vers Satan Fight Arena");
+        bar.setExits(null, null, ShaolineDojo, bikersClub, ">> South, vers Shaoline Dojo");
+        bikersClub.setExits(null, bar, null, wildForest, ">> West, vers wildForest");
+        wildForest.setExits(null, bikersClub, zoo, null, ">> South, vers le zoo");
+        casinoClub.setExits(null, FrankLeBrageLab, SatanFightArena, null, ">> South, vers Satan Fight Arena");
+        airplane.setExits(FrankLeBrageLab, null, null, SatanFightArena, ">> West, vers Satan Fight Arena");
         SatanFightArena.setExits(casinoClub, airplane, null, null, null);
         
         //mettre des objets

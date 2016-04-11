@@ -59,6 +59,7 @@ public class Game
             finished = processCommand(command);
         }   
 		if (this.hero.etreMort()) {
+		    System.out.println(); 
 			System.out.println("Vous n'avez plus de point de vie, vous êtes mort !"); 
 		}
         System.out.println("Thank you for playing.  Good bye.");       
@@ -183,8 +184,7 @@ public class Game
                 System.out.println("Gongratulation, you've reached the target");
                 System.out.println("the game is over");
                 return;
-            }
-            
+            }            
             System.out.println("You are " + carte.currentRoom.getDescription());
             System.out.print("Exits: ");
             if (carte.currentRoom.northExit != null) {
