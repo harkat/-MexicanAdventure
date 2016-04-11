@@ -90,9 +90,11 @@ public class Dialogue
             String str = sc.nextLine();
             if (str.equals("yes")) {
                 System.out.println ("voici ma question : "); 
-                System.out.print(content[1]);
-                System.out.println ("Choix : "); 
+                System.out.println(content[1]);
+                System.out.println();  
+                System.out.println ("Les Choix : "); 
                 System.out.println(content[2]);
+                System.out.println();  
                 System.out.print("Quelle est le numéro de la bonne réponse  ? : "); 
                 String str1 = sc.nextLine();
                 if (str1.equals(content[3])){
