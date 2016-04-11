@@ -1,25 +1,24 @@
 
 /**
- * Represente un Catcheur
+ * Represente un Monstre
  * 
  * @author  Groupe 6
  * @version V2.0
  */
-public class Catcheur extends Adversaire
+public class Monstre extends Adversaire
 {
-    
     /**
      * constructeur herite celui de la classe Adversaire
      * @param p points de vie du Monstre cree
      */
-    public Catcheur(double p)
+    public Monstre(double p)
     {
         super(p);
     }
 
     /**
      * permet de mettre a jour les points
-     * du Catcheur attaquant et de le Personnage attaque
+     * du Monstre attaquant et de le Personnage attaque
      * apres un attaque
      * @param p le Personnage attaque
      */
@@ -28,7 +27,7 @@ public class Catcheur extends Adversaire
         double blessure = p.subirFrappe(coup);
         this.ajouterVie(-blessure);
     }
-    
+
     /**
      * permet de calculer les points perdus a cause d'une frappe
      * @param coup la force de l'attaque

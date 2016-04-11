@@ -43,7 +43,10 @@ public class Room
      * objet dans la room ou null.
      */
     public Objet objet;
-
+    /**
+     * Adverssaire dans la room ou null.
+     */
+    public Adversaire adversaire;
     /**
      * Create a room described "description". Initially, it has
      * no exits. "description" is something like "a kitchen" or
@@ -81,30 +84,43 @@ public class Room
         directSortie = guide;
     }
     
-    public void setObjet(Objet obj){
+    /**
+     * met un Adversaire dans la Room
+     * @param adv l'Adversaire a mettre
+     */
+    public void setAdversaire(Adversaire adv) {
+        this.adversaire = adv;
+    }
+    
+    /**
+     * met un  dans la Room
+     * @param obj l'objet a mettre
+     */
+    public void setObjet(Objet obj) {
         this.objet = obj;
     }
     
-    
-    
+    /**
+     * obtient la Room suivante
+     * @param r la direction de la
+     * room suivante
+     * @return nextRoom la Room suivante
+     */
     public Room nextRoom(String r) {
-        
-                 Room nextRoom = null;
-                if (r.equals("nord")) {
-                nextRoom = northExit;
-                }
-                if (r.equals("est")) {
-                        nextRoom = eastExit;
-                    }
-                if (r.equals("sud")) {
-                        nextRoom = southExit;
-                    }
-                if (r.equals("ouest")) {
-                        nextRoom = westExit;
-                    }
-        
-        return nextRoom ;
-        
+        Room nextRoom = null;
+        if (r.equals("north")) {
+            nextRoom = northExit;
+        }
+        if (r.equals("east")) {
+            nextRoom = eastExit;
+        }
+        if (r.equals("south")) {
+            nextRoom = southExit;
+        }
+        if (r.equals("west")) {
+            nextRoom = westExit;
+        }        
+        return nextRoom ;      
     }
 
     /**
