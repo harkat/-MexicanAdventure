@@ -1,3 +1,4 @@
+import java.util.Scanner;
 /**
  *  This class is the main class of the "World of Zuul" application. 
  *  "World of Zuul" is a very simple, text based adventure game.  Users 
@@ -18,8 +19,8 @@
 public class Game 
 {
     private Parser parser;
-    //private Room currentRoom;
     private Carte carte;
+	private Hero hero ;
     
     /**
      * Create the game and initialise its internal map.
@@ -36,27 +37,30 @@ public class Game
      */
     public void play() 
     {            
+        System.out.print("Donner un nom à votre Hero : "); 
+        Scanner sc = new Scanner(System.in);
+	    String str = sc.nextLine();
+	    this.hero = new Hero (str) ;
         printWelcome();
-
-        // Enter the main command loop.  Here we repeatedly read commands and
-        // execute them until the game is over.
         
-        
-        Dialogue diag = new Dialogue(carte.currentRoom) ;
+        Dialogue diag = new Dialogue(carte.currentRoom, this.hero) ;
         diag.dialogueMaker();
         boolean finished = false;
-        while (!finished) {
+        while (!finished && ! this.hero.etreMort() ) {
             Command command = parser.getCommand();
             if (command.getSecondWord()!= null) {
                 String direction = command.getSecondWord();
                 Room nextRoom = carte.currentRoom.nextRoom(direction) ;
                 if (nextRoom != null){
-                    diag = new Dialogue(nextRoom) ;
+                    diag = new Dialogue(nextRoom, this.hero) ;
                     diag.dialogueMaker();
                 }
             }
             finished = processCommand(command);
         }   
+		if (this.hero.etreMort()) {
+			System.out.println("Vous n'avez plus de point de vie, vous êtes mort !"); 
+		}
         System.out.println("Thank you for playing.  Good bye.");       
     }
 
@@ -65,11 +69,15 @@ public class Game
      */
     private void printWelcome()
     {
+        Scanner sc = new Scanner(System.in);
         System.out.println();
-        System.out.println("Welcome to the World of Zuul!");
-        System.out.print("World of Zuul is a new, ");
-        System.out.println("incredibly boring adventure game.");
+        System.out.println("Hello "+this.hero.getNom()+", you are welcome to the Catcheur Adventurs!");
+        System.out.print("the Catcheur Adventurs is a new, ");
+        System.out.println("incredibly not cool adventure game.");
         System.out.println("Type 'help' if you need help.");
+        System.out.println();
+        System.out.print("hit any button to start the adventure..."); 
+        sc.nextLine();
         System.out.println();
         System.out.println("You are " + carte.currentRoom.getDescription());
         System.out.print("Exits: ");
