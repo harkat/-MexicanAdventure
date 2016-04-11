@@ -12,22 +12,22 @@ import java.util.Scanner;
  *  rooms, creates the parser and starts the game.  It also evaluates and
  *  executes the commands that the parser returns.
  * 
- * @author  Michael Kölling and David J. Barnes
- * @version 2011.07.31
+ * @author  Groupe 6
+ * @version V2.0
  */
 
 public class Game 
 {
     private Parser parser;
     private Carte carte;
-	private Hero hero ;
+    private Hero hero ;
     
     /**
      * Create the game and initialise its internal map.
      */
-    public Game(Carte crt) 
+    public Game() 
     {
-        this.carte = crt;
+        this.carte = new Carte();
         this.parser = new Parser();
         
     }
@@ -39,29 +39,30 @@ public class Game
     {            
         System.out.print("Donner un nom à votre Hero : "); 
         Scanner sc = new Scanner(System.in);
-	    String str = sc.nextLine();
-	    this.hero = new Hero (str) ;
+        String str = sc.nextLine();
+        this.hero = new Hero (str) ;
         printWelcome();
         
         Dialogue diag = new Dialogue(carte.currentRoom, this.hero) ;
         diag.dialogueMaker();
         boolean finished = false;
-        while (!finished && ! this.hero.etreMort() ) {
+        while (!finished && !this.hero.etreMort() ) {
             Command command = parser.getCommand();
-            if (command.getSecondWord()!= null) {
+            if (command.getSecondWord() != null) {
                 String direction = command.getSecondWord();
                 Room nextRoom = carte.currentRoom.nextRoom(direction) ;
-                if (nextRoom != null){
+                if (nextRoom != null) {
                     diag = new Dialogue(nextRoom, this.hero) ;
                     diag.dialogueMaker();
                 }
             }
             finished = processCommand(command);
         }   
-		if (this.hero.etreMort()) {
-		    System.out.println(); 
-			System.out.println("Vous n'avez plus de point de vie, vous êtes mort !"); 
-		}
+        if (this.hero.etreMort()) {
+            System.out.println(); 
+            System.out.print("Vous n'avez plus de point de vie, ");
+            System.out.println("vous êtes mort !"); 
+        }
         System.out.println("Thank you for playing.  Good bye.");       
     }
 
@@ -72,7 +73,8 @@ public class Game
     {
         Scanner sc = new Scanner(System.in);
         System.out.println();
-        System.out.println("Hello "+this.hero.getNom()+", you are welcome to the Catcheur Adventurs!");
+        System.out.println("Hello " + this.hero.getNom() + 
+            ", you are welcome to the Catcheur Adventurs!");
         System.out.print("the Catcheur Adventurs is a new, ");
         System.out.println("incredibly not cool adventure game.");
         System.out.println("Type 'help' if you need help.");
@@ -117,7 +119,8 @@ public class Game
         }
         else if (commandWord.equals("go")) {
             goRoom(command);
-            if (carte.currentRoom.description.equals("in Satan fighting arena")){
+            if (carte.currentRoom.description.equals(
+                "in Satan fighting arena")) {
                 wantToQuit = true ;
             }
         }
@@ -179,8 +182,10 @@ public class Game
         }
         else {
             carte.currentRoom = nextRoom;
-            if(carte.currentRoom.getDescription().equals("in Satan fighting arena")){
-                System.out.println("You are " + carte.currentRoom.getDescription());
+            if (carte.currentRoom.getDescription().equals(
+                "in Satan fighting arena")) {
+                System.out.println("You are " 
+                    + carte.currentRoom.getDescription());
                 System.out.println("Gongratulation, you've reached the target");
                 System.out.println("the game is over");
                 return;

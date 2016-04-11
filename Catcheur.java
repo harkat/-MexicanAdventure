@@ -1,33 +1,59 @@
 
 /**
- * Write a description of class Catcheur here.
+ * Represente un Catcheur
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author  Groupe 6
+ * @version V2.0
  */
 public class Catcheur extends Adverssaire
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
+    
     /**
-     * Constructor for objects of class Catcheur
+     * constructeur herite celui de la classe Adverssaire
+     * @param n nom du Monstre cree
+     * @param p points de vie du Monstre cree
      */
-    public Catcheur()
+    public Catcheur(String n, double p)
     {
-        // initialise instance variables
-        x = 0;
+        super(n, p);
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * permet de mettre a jour les points
+     * du Catcheur attaquant et de le Personnage attaque
+     * apres un attaque
+     * @param p le Personnage attaque
      */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public void attaquer(Personnage p) {
+        double coup = this.getVie() / 2;
+        double blessure = p.subirFrappe(coup);
+        this.ajouterVie(-blessure);
+    }
+    
+    /**
+     * permet de calculer les points perdus a cause d'une frappe
+     * @param coup la force de l'attaque
+     * @return un reel
+     */
+    public double subirFrappe(double coup) {
+        this.ajouterVie(-coup);
+        double blessure = this.getVie() / 2;
+        return blessure;
+    }
+    
+    /**
+     * permet de recuperer les points du Personnage
+     * @return un reel
+     */
+    public double getVie() {
+        return this.ptsVie;
+    }
+    
+    /**
+     * permet de mettre a jour les points du Personnage
+     * @param num les points a rajouter
+     */
+    public void ajouterVie(double num) {
+        this.ptsVie = (int)(this.ptsVie + num);
     }
 }
