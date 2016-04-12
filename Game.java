@@ -73,8 +73,9 @@ public class Game
     {
         Scanner sc = new Scanner(System.in);
         System.out.println();
-        System.out.println("Salut " + this.hero.getNom()+",");
-        System.out.println("Soyez le bienvenue dans les aventures du Catcheur Mexicain!");
+        System.out.println("Salut " + this.hero.getNom() + ",");
+        System.out.println("Soyez le bienvenue dans les " +
+            "aventures du Catcheur Mexicain!");
         System.out.println("les aventures du Catcheur Mexicain " +
             "est un nouveau jeu, ");
         System.out.println("super cool que même " +
@@ -160,8 +161,8 @@ public class Game
     {
         if (!command.hasSecondWord()) {
             // if there is no second word, we don't know where to go...
-            System.out.println("Désolé je ne peux pas deviner la direction ! " +
-                "il faut me dire dans quelle direction aller");
+            System.out.println("Désolé je ne peux pas deviner la direction ! "
+                + "il faut me dire dans quelle direction aller");
             return;
         }
 

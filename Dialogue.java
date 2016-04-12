@@ -79,7 +79,7 @@ public class Dialogue
             Scanner sc = new Scanner(System.in);
             System.out.println(); 
             System.out.println("Salut " + this.hero.getNom() +
-                ","+"\n"+ "Bienvenue " + content[0] + "\n" +
+                "," + "\n" + "Bienvenue " + content[0] + "\n" +
                 "si tu veux que je te dise où se" + 
                 " trouve le catcheur mafieux Satan.\n" +
                 "Il faut que tu sois capable de répondre à une question... ");
@@ -208,7 +208,8 @@ public class Dialogue
      */
     public String [] circusTalk () 
     {
-        String [] str = {"dans le chapiteau du cirque des acrobaties dangeureuses !",
+        String [] str = {"dans le chapiteau du cirque " +
+                "des acrobaties dangeureuses !",
             " Pendant combien de jours un être " +
                 "humain peu vivre sans manger ? : ",
             " 1- 5 jours \n 2- 9 jours  \n 3- 7 jours  \n 4- 30 jours",

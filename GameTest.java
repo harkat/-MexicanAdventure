@@ -201,7 +201,7 @@ public class GameTest
         // Room lab
     //    assertThat(lines[11], containsString("in a computing lab"));
         // Room office
-    //    assertThat(lines[13], containsString("in the computing admin office"));
+    //  assertThat(lines[13], containsString("in the computing admin office"));
         // Room pub
     //    assertThat(lines[19], containsString("in the campus pub"));
         // End of program
