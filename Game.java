@@ -210,7 +210,7 @@ public class Game
                 System.out.print("sud ");
             }
             if (carte.currentRoom.westExit != null) {
-                System.out.print("oust ");
+                System.out.print("ouest ");
             }            
             System.out.println();          
         }

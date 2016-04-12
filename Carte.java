@@ -29,7 +29,7 @@ public class Carte
         Room circus = new Room("au cirque");
         Room shaolineDojo = new Room("au monastère Shaolin");
         Room zoo = new Room("au zoo");
-        Room frankLeBrageLab = new Room("au Laboratoire de FrankLeBarge");
+        Room frankLeBargeLab = new Room("au Laboratoire de FrankLeBarge");
         Room ferryBoat = new Room("au ferryBoat");
         Room bar = new Room("au bar");
         Room bikersClub = new Room("au club des motards");
@@ -40,23 +40,23 @@ public class Carte
             "de combat de Satan");
         
         // initialise room exits
-        circus.setExits(null, shaolineDojo, frankLeBrageLab, zoo,
+        circus.setExits(null, shaolineDojo, frankLeBargeLab, zoo,
             ">> Sud, vers FranckLeBarge");
         shaolineDojo.setExits(bar, null, null, circus,
             ">> Ouest, vers le cirque");
         zoo.setExits(wildForest, circus, null, null, ">> Est, vers le cirque");
-        frankLeBrageLab.setExits(circus, ferryBoat, airplane, casinoClub,
+        frankLeBargeLab.setExits(circus, ferryBoat, airplane, casinoClub,
             ">> Sud, l'aéroport");
-        ferryBoat.setExits(null, null, null, frankLeBrageLab,
+        ferryBoat.setExits(null, null, null, frankLeBargeLab,
             ">> Sud, vers FranckLeBarge");
         bar.setExits(null, null, shaolineDojo, bikersClub,
             ">> Sud, vers le monastère Shaolin");
         bikersClub.setExits(null, bar, null, wildForest,
             ">> Ouest, vers la foret sauvage");
         wildForest.setExits(null, bikersClub, zoo, null, ">> Sud, le zoo");
-        casinoClub.setExits(null, frankLeBrageLab, satanFightArena, null,
+        casinoClub.setExits(null, frankLeBargeLab, satanFightArena, null,
             ">> Sud, vers Satan Fight Arena");
-        airplane.setExits(frankLeBrageLab, null, null, satanFightArena,
+        airplane.setExits(frankLeBargeLab, null, null, satanFightArena,
             ">> Ouest, vers l'arène finale de combat de Satan");
         satanFightArena.setExits(casinoClub, airplane, null, null, null);
         

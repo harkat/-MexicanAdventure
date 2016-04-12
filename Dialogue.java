@@ -41,7 +41,7 @@ public class Dialogue
                 content = this.zooTalk() ;
                 break ;
 
-            case "au Laboratoir de FrankLeBarge":
+            case "au Laboratoire de FrankLeBarge":
                 content = this.labTalk() ;
                 break ;
 
