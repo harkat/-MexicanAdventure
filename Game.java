@@ -149,7 +149,7 @@ public class Game
         System.out.println("vous êtes à " + carte.currentRoom.description);
         System.out.println();
         System.out.println("Vous pouvez taper : ");
-        System.out.println("aller [sud, est, ouest, nord], quiter, aide");
+        System.out.println("aller [sud, est, ouest, nord], quitter, aide");
     }
 
     /** 
