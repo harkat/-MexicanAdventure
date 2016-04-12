@@ -27,14 +27,14 @@ public class Carte
     {      
         // create the rooms
         Room circus = new Room("au cirque");
-        Room shaolineDojo = new Room("au temple des Shaoline");
+        Room shaolineDojo = new Room("au monastère Shaolin");
         Room zoo = new Room("au zoo");
-        Room frankLeBrageLab = new Room("au Laboratoir de FrankLeBrage");
+        Room frankLeBrageLab = new Room("au Laboratoire de FrankLeBarge");
         Room ferryBoat = new Room("au ferryBoat");
         Room bar = new Room("au bar");
-        Room bikersClub = new Room("au clube des motards");
+        Room bikersClub = new Room("au club des motards");
         Room wildForest = new Room("à la foret sauvage");
-        Room casinoClub = new Room("au clube casino");
+        Room casinoClub = new Room("au casino");
         Room airplane = new Room("à l'aéroport");
         Room satanFightArena = new Room("à l'arène finale " +
             "de combat de Satan");
@@ -50,7 +50,7 @@ public class Carte
         ferryBoat.setExits(null, null, null, frankLeBrageLab,
             ">> Sud, vers FranckLeBarge");
         bar.setExits(null, null, shaolineDojo, bikersClub,
-            ">> Sud, vers le temple des Shaoline");
+            ">> Sud, vers le monastère Shaolin");
         bikersClub.setExits(null, bar, null, wildForest,
             ">> Ouest, vers la foret sauvage");
         wildForest.setExits(null, bikersClub, zoo, null, ">> Sud, le zoo");

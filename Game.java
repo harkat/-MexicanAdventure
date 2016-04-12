@@ -36,7 +36,7 @@ public class Game
      */
     public void play() 
     {            
-        System.out.print("Donner un nom à votre Hero : "); 
+        System.out.print("Donnez un nom à votre Hero : "); 
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();
         this.hero = new Hero (str) ;
@@ -73,16 +73,16 @@ public class Game
     {
         Scanner sc = new Scanner(System.in);
         System.out.println();
-        System.out.println("Salut " + this.hero.getNom() +
-            ", Soyez le bienvenue dans les aventures du Catcheur Mexicain!");
+        System.out.println("Salut " + this.hero.getNom()+",");
+        System.out.println("Soyez le bienvenue dans les aventures du Catcheur Mexicain!");
         System.out.println("les aventures du Catcheur Mexicain " +
-            "est un nouveau jeux, ");
-        System.out.println("super cool que même ceux " +
-            "de chez Ubisoft envient.");
-        System.out.println("pour avoir de l'aide sur " +
-            "les commandes, tapez : aide.");
+            "est un nouveau jeu, ");
+        System.out.println("super cool que même " +
+            "Ubisoft envie.");
+        System.out.println("Pour avoir de l'aide sur " +
+            "les commandes, tapez: aide.");
         System.out.println();
-        System.out.print("appuyez sur n'importe quelle " +
+        System.out.print("Appuyez sur n'importe quelle " +
             "touche pour commencer..."); 
         sc.nextLine();
         System.out.println();
@@ -114,7 +114,7 @@ public class Game
 
         if (command.isUnknown()) {
             System.out.println("Je ne comprend ce que vous voulez dire ! " +
-                "vous êtes sou ou quoi ?");
+                "vous êtes saoul ou quoi ?");
             return false;
         }
 
@@ -148,7 +148,7 @@ public class Game
         System.out.println("vous êtes à " + carte.currentRoom.description);
         System.out.println();
         System.out.println("Vous pouvez taper : ");
-        System.out.println("aller [sud, est, ouest, nord], quitter, aide");
+        System.out.println("aller [sud, est, ouest, nord], quiter, aide");
     }
 
     /** 
@@ -160,8 +160,8 @@ public class Game
     {
         if (!command.hasSecondWord()) {
             // if there is no second word, we don't know where to go...
-            System.out.println("Désolé je peux pas deviner la direction ! " +
-                "faut me dire dans quelle direction aller");
+            System.out.println("Désolé je ne peux pas deviner la direction ! " +
+                "il faut me dire dans quelle direction aller");
             return;
         }
 
@@ -183,7 +183,7 @@ public class Game
         }
 
         if (nextRoom == null) {
-            System.out.println("Il n'y a pas d'accés par cette direction");
+            System.out.println("Il n'y a pas d'accès par cette direction");
         }
         else {
             carte.currentRoom = nextRoom;
@@ -191,7 +191,7 @@ public class Game
                 "à l'arène finale de combat de Satan")) {
                 System.out.println("Vous êtes enfin arrivé " + 
                     carte.currentRoom.getDescription());
-                System.out.println("Félicitation, " +
+                System.out.println("Félicitations, " +
                     "vous avez atteint la zone finale");
                 System.out.println("Le jeu est terminé");
                 return;
@@ -209,7 +209,7 @@ public class Game
                 System.out.print("sud ");
             }
             if (carte.currentRoom.westExit != null) {
-                System.out.print("ouest ");
+                System.out.print("oust ");
             }            
             System.out.println();          
         }
@@ -224,8 +224,8 @@ public class Game
     private boolean quit(Command command) 
     {
         if (command.hasSecondWord()) {
-            System.out.println("quitter quoi au juste ! " +
-                "si vous voulez abbondoner faut l'écrire tout court");
+            System.out.println("Quitter quoi au juste? " +
+                "Si vous voulez abandonner, il faut écrire: quitter");
             return false;
         }
         else {

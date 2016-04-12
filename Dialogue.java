@@ -2,7 +2,7 @@ import java.util.Scanner;
 /**
  * Manipule le dialogue durant le jeu
  * 
- * @author Amir 
+ * @author Amir (edit Jerry)
  * @version 1.0
  */
 public class Dialogue
@@ -33,7 +33,7 @@ public class Dialogue
                 content = this.circusTalk() ;
                 break ;
 
-            case "au temple des Shaoline":
+            case "au monastère Shaolin":
                 content = this.dojoTalk() ;
                 break ;
 
@@ -41,7 +41,7 @@ public class Dialogue
                 content = this.zooTalk() ;
                 break ;
 
-            case "au Laboratoir de FrankLeBrage":
+            case "au Laboratoir de FrankLeBarge":
                 content = this.labTalk() ;
                 break ;
 
@@ -53,7 +53,7 @@ public class Dialogue
                 content = this.barTalk() ;
                 break ;
 
-            case "au clube des motards" :
+            case "au club des motards" :
                 content = this.bikeTalk() ;
                 break ;
 
@@ -61,7 +61,7 @@ public class Dialogue
                 content = this.forestTalk() ;
                 break ;
 
-            case "au clube casino" :
+            case "au casino" :
                 content = this.casinoTalk() ;
                 break ;
 
@@ -79,27 +79,27 @@ public class Dialogue
             Scanner sc = new Scanner(System.in);
             System.out.println(); 
             System.out.println("Salut " + this.hero.getNom() +
-                ", soit le bienvenue " + content[0] + "\n" +
+                ","+"\n"+ "Bienvenue " + content[0] + "\n" +
                 "si tu veux que je te dise où se" + 
-                " trouve le catcheur mafieux Satan\n" +
-                "faut répondre à une question... ");
+                " trouve le catcheur mafieux Satan.\n" +
+                "Il faut que tu sois capable de répondre à une question... ");
             System.out.print("appuyer sur \"ENTER\" pour cotinuer..."); 
             sc.nextLine();
             System.out.print("Veux-tu répondre à ma question ? " +
                 "(\"oui\" : pour ouais) : ");
             String str = sc.nextLine();
             if (str.equals("oui")) {
-                System.out.println ("voici ma question : "); 
+                System.out.println ("Voici ma question : "); 
                 System.out.println(content[1]);
                 System.out.println();  
-                System.out.println ("Les Choix : "); 
+                System.out.println ("Les choix : "); 
                 System.out.println(content[2]);
                 System.out.println();  
-                System.out.print("Quelle est le numéro " +
+                System.out.print("Quel est le numéro " +
                     "de la bonne réponse  ? : "); 
                 String str1 = sc.nextLine();
                 if (str1.equals(content[3])) {
-                    System.out.println("Bien jouer ! " +
+                    System.out.println("Bien joué ! " +
                         "le catcheur mafieux SATAN " +
                         "se trouve dans la direction : \n" +
                         curentRoom.directSortie) ;
@@ -109,13 +109,13 @@ public class Dialogue
                     System.out.println("Mauvaise réponse ! je ne " +
                         "peux rien te dire sur SATAN ! \n" +
                         "à la prochaine fois...") ;  
-                    System.out.println("Vous avez Perdu 1 point de vie !" +
+                    System.out.println("Vous avez perdu 1 point de vie !" +
                         " il vous reste : " + this.hero.getVie() + " ptVie");
                 }   
             } 
             else {
-                System.out.println("ahaha je comprends " +
-                    "que t'as peur mon petit " + this.hero.getNom() +
+                System.out.println("Hahaha je comprends " +
+                    "que tu as peur mon petit " + this.hero.getNom() +
                     "\n" + "à la prochaine fois...") ;  
             }           
             System.out.println();   
@@ -129,7 +129,7 @@ public class Dialogue
     public String [] labTalk () 
     {        
         String [] str = {"au laboratoire du savant fou FranckLeBarge", 
-            "Combien Font 20 * 5 ? : ",
+            "Résoudre 20 * 5 ? : ",
             " 1-10 \n 2-99 \n 3-100 \n 4-101",
             "3"} ;
         return str ;    
@@ -142,7 +142,7 @@ public class Dialogue
     {
         String [] str = {"dans le club où tout est permis !",
             "Quelle est la probabilité en pourcentage " +
-                "d'avoir une main Quinte en Poker 32 carte ?  : ",
+                "d'avoir une main Quinte au jeu de Poker 32 carte ?  : ",
             " 1-10% \n 2-2% \n 3-40% \n 4-60%",
             "2"} ;
         return str ;
@@ -153,7 +153,7 @@ public class Dialogue
      */
     public String [] dojoTalk () 
     {       
-        String [] str = {"dans le dojo d'arts martiaux shaoline !", 
+        String [] str = {"dans le dojo d'arts martiaux shaolin !", 
             "Quel est la partie la plus faible du corps humain ? : ",
             " 1-la tête \n 2-les pieds  \n 3-les bras  \n 4-le torse",
             "1"} ;
@@ -166,9 +166,9 @@ public class Dialogue
      */
     public String [] barTalk () 
     {
-        String [] str = {"dans le bar où tous les boissons " +
+        String [] str = {"dans le bar où toutes les boissons " +
                 "sont super alcoolisées !", 
-            "Quel est le degrés d'alcool de la Tequila San José ? : ", 
+            "Quel est le degré d'alcool de la Tequila San José ? : ", 
             " 1- 80% \n 2- 35%  \n 3- 8%  \n 4- 0.2%",
             "2"} ;
         return str ;
@@ -180,7 +180,7 @@ public class Dialogue
      */
     public String [] forestTalk () 
     {
-        String [] str = {"dans le Forêt sauvage, où seuls " +
+        String [] str = {"dans la Forêt sauvage, où seuls " +
                 "les braves ont leur place !", 
             " Quel est le carré du tiers de 12 ? : ", 
             " 1- 17 \n 2- 15  \n 3- 4  \n 4- 16",
@@ -208,7 +208,7 @@ public class Dialogue
      */
     public String [] circusTalk () 
     {
-        String [] str = {"dans le cirque des acrobaties dangeureuse !",
+        String [] str = {"dans le chapiteau du cirque des acrobaties dangeureuses !",
             " Pendant combien de jours un être " +
                 "humain peu vivre sans manger ? : ",
             " 1- 5 jours \n 2- 9 jours  \n 3- 7 jours  \n 4- 30 jours",
@@ -223,9 +223,9 @@ public class Dialogue
     public String [] zooTalk ()
     {
         String [] str = {"dans le zoo des animaux sauvages !", 
-            "quel est l'animal le plus rapide au monde ? : ",
+            "Quel est l'animal le plus rapide au monde ? : ",
             " 1- le dauphin \n 2- le guépard \n " +
-                "3- la tortue  \n 4- la gérafe",
+                "3- la tortue  \n 4- la girafe",
             "2"} ;
         return str ;
     }
@@ -237,7 +237,7 @@ public class Dialogue
     public String [] bikeTalk () 
     {
         String [] str = {"dans le club des motards fous !",
-            "quel est le constructeur de moto le plus connu " +
+            "Quel est le constructeur de moto le plus connu " +
                 "au monde pour ses grosses cylindrées ? : ", 
             " 1-Suzuki \n 2-Renault  \n 3- Ferrari \n 4- Harley davidson",
             "4"} ;
@@ -252,9 +252,9 @@ public class Dialogue
     {
         String [] str = {"au bord de l'avion qui vole vers " +
                 "toutes les destinations !",
-            "quelle est l'altitude minimal en KM  à " +
-                "partir de la quelle l'avion peut voler ? : ",
-            " 1- 1000 km \n 2- 8000 km  \n 3- 50 km \n 4- 600 km ",
+            "Quelle est l'altitude minimale en M  à " +
+                "partir de laquelle l'avion peut voler ? : ",
+            " 1- 1000 m \n 2- 8000 m  \n 3- 50 m \n 4- 600 m ",
             "2"} ;
         return str ;        
     }
@@ -274,33 +274,33 @@ public class Dialogue
             "que pendant un certain moment, " +
             "tu m'as cherché un peu partout" + "\n" +
             "dans le monde ! t'es devant moi maintenant... ");
-        System.out.print("appuyer sur \"ENTER\" pour cotinuer..."); 
+        System.out.print("Appuyez sur \"ENTER\" pour cotinuer..."); 
         sc.nextLine();
-        System.out.println("qu'attends tu de moi au just ?");
+        System.out.println("Qu'attends tu de moi au juste ?");
         String str1 = sc.nextLine();
         System.out.println(str1 + " !! OK, si tu veux cela, " + 
             "il faut répondre à mon énigme !");
 
-        System.out.print("appuyer sur \"ENTER\" pour cotinuer..."); 
+        System.out.print("Appuyer sur \"ENTER\" pour cotinuer..."); 
         sc.nextLine();
 
         System.out.print("Veux-tu répondre à ma question ? " 
             + "(\"oui\" : pour ouais) ");
         String str = sc.nextLine();
         if (str.equals("oui")) {
-            System.out.println ("dit moi : "); 
+            System.out.println ("dis moi: "); 
             System.out.print("Cette personne est punis " +
-                "quand elle fait une tentative d'un crime, " +
+                "quand elle fait une tentative de crime, " +
                 "mais elle ne l'est pas si elle le commet ? : ");
             String str2 = sc.nextLine();
             if (str2.contains("kamikaze")) {
-                System.out.println("Tu as gagné ! je me remet à toi !" +
-                    " tu peux faire ce que tu veux de moi");
+                System.out.println("Tu as gagné ! Je me remet à toi !" +
+                    " Tu peux faire ce que tu veux de moi");
             }
             else {
                 System.out.println("Non, ce n'est pas ça ! " +
-                    "il va falloir m'affronter dans une version " +
-                    "plus améliorée de ce jeu !");
+                    "Il va falloir m'affronter dans une version " +
+                    "améliorée de ce jeu !");
             }
         } 
         System.out.println("*************************************************");
