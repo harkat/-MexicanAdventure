@@ -75,7 +75,7 @@ public class Game
         System.out.println();
         System.out.println("Salut " + this.hero.getNom() +
             ", Soyez le bienvenue dans les aventures du Catcheur Mexicain!");
-        System.out.print("les aventures du Catcheur Mexicain " +
+        System.out.println("les aventures du Catcheur Mexicain " +
             "est un nouveau jeux, ");
         System.out.println("super cool que même ceux " +
             "de chez Ubisoft envient.");
@@ -148,7 +148,7 @@ public class Game
         System.out.println("vous êtes à " + carte.currentRoom.description);
         System.out.println();
         System.out.println("Vous pouvez taper : ");
-        System.out.println("aller [sud, est, ouest, nord], quiter, aide");
+        System.out.println("aller [sud, est, ouest, nord], quitter, aide");
     }
 
     /** 
@@ -209,7 +209,7 @@ public class Game
                 System.out.print("sud ");
             }
             if (carte.currentRoom.westExit != null) {
-                System.out.print("oust ");
+                System.out.print("ouest ");
             }            
             System.out.println();          
         }

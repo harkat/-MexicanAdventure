@@ -76,7 +76,7 @@ public class GameTest
     public void outCapture() {
         System.setOut(new PrintStream(outContent));
         System.out.println("hello");
-        assertThat(outContent.toString(), is("hello\n"));
+        assertThat(outContent.toString(), is("hello\r\n"));
     }
 
     /**

@@ -108,16 +108,16 @@ public class Room
      */
     public Room nextRoom(String r) {
         Room nextRoom = null;
-        if (r.equals("north")) {
+        if (r.equals("nord")) {
             nextRoom = northExit;
         }
-        if (r.equals("east")) {
+        if (r.equals("est")) {
             nextRoom = eastExit;
         }
-        if (r.equals("south")) {
+        if (r.equals("sud")) {
             nextRoom = southExit;
         }
-        if (r.equals("west")) {
+        if (r.equals("ouest")) {
             nextRoom = westExit;
         }        
         return nextRoom ;      
