@@ -1,4 +1,4 @@
-
+import java.util.Random;
 /**
  * Represente tout type d'objet
  * present dans une carte
@@ -16,6 +16,10 @@ public abstract class Objet
      * les points appotes au personnage
      */
     protected int points;
+    /**
+     * pour generer des valeurs aleatoires
+     */
+    private static final Random RAND = Randomizer.getRandom();
 
     /**
      * cree un objet
@@ -32,7 +36,7 @@ public abstract class Objet
      */
     private String genererNom() {
         String nm = "";
-        int tag = (int)(Math.random() * 5) + 1;
+        int tag = RAND.nextInt(5) + 1;
         
         if (this instanceof Relique) {
             switch(tag) {

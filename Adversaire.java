@@ -1,4 +1,4 @@
-
+import java.util.Random;
 /**
  * Abstract class Adversaire - write a description of the class here
  * 
@@ -18,6 +18,11 @@ public abstract class Adversaire implements Personnage
      */
     protected double ptsVie;
     /**
+     * pour generer des valeurs aleatoires
+     */
+    private static final Random RAND = Randomizer.getRandom();
+    
+    /**
      * constructeur initialise avec les parametres
      * @param pv points de vie du Personnage cree
      */
@@ -32,7 +37,7 @@ public abstract class Adversaire implements Personnage
      */
     private String genererNom() {
         String nm = "";
-        int tag = (int)(Math.random() * 5) + 1;
+        int tag = RAND.nextInt(5) + 1;
         
         if (this instanceof Catcheur) {
             switch(tag) {

@@ -1,4 +1,5 @@
-
+import java.util.HashMap;
+import java.util.Random;
 /**
  * Represente une carte composee de multiples room
  *
@@ -11,6 +12,14 @@ public class Carte
      * la Room courante
      */
     public Room currentRoom;
+    /**
+     * table contient les Room qui compose la Carte
+     */
+    public HashMap<Integer, Room> carte = new HashMap<Integer, Room>();
+    /**
+     * pour generer des valeurs aleatoires
+     */
+    private static final Random RAND = Randomizer.getRandom();
 
     /**
      * Constructeur d'objets de classe Carte
@@ -60,20 +69,80 @@ public class Carte
             ">> Ouest, vers l'arène finale de combat de Satan");
         satanFightArena.setExits(casinoClub, airplane, null, null, null);
         
+        //mettre les Room dans un tableau associatif
+        carte.put(1, circus);
+        carte.put(2, shaolineDojo);
+        carte.put(3, zoo);
+        carte.put(4, frankLeBargeLab);
+        carte.put(5, ferryBoat);
+        carte.put(6, bar);
+        carte.put(7, bikersClub);
+        carte.put(8, wildForest);
+        carte.put(9, casinoClub);
+        carte.put(10, airplane);
+        carte.put(11, satanFightArena);
+        
+        remplirMap();
+    }
+    
+    /**
+     * Cree 3 Objets et 3 Adversaires
+     * et les met au hasard
+     * dans 3 Rooms differentes pour les Objets
+     * dans 2 Rooms differentes pour les Adversaires
+     * 
+     * Choisit la Room courante au hasard
+     */
+    private void remplirMap() {
+        int[] objClef = randomiser();
         //mettre des objets
         Objet obj1 = new Instrument(100, 50);
         Objet obj2 = new Nourriture(50);
         Objet obj3 = new Relique(100, 1000);
-        wildForest.setObjet(obj1);
-        zoo.setObjet(obj2);
-        ferryBoat.setObjet(obj3);
+        
+        Room temp1 = carte.get(objClef[0]);        
+        Room temp2 = carte.get(objClef[1]);
+        Room temp3 = carte.get(objClef[2]);
+        temp1.setObjet(obj1);
+        temp2.setObjet(obj2);
+        temp3.setObjet(obj3);
+        
+        carte.put(objClef[0], temp1);
+        carte.put(objClef[1], temp2);
+        carte.put(objClef[2], temp3);
+        
+        int[] advClef = randomiser();
         
         Adversaire adv1 = new Monstre(100);
         Adversaire adv2 = new Catcheur(100);
-        bikersClub.setAdversaire(adv1);
-        casinoClub.setAdversaire(adv2);
-
-        currentRoom = bar;
+        
+        Room temp4 = carte.get(advClef[0]);
+        Room temp5 = carte.get(advClef[1]);
+        temp4.setAdversaire(adv1);
+        temp5.setAdversaire(adv2);
+        
+        carte.put(advClef[0], temp4);
+        carte.put(advClef[1], temp5);
+        
+        currentRoom = carte.get(randomiser()[0]);
     }
-
+    
+    /**
+     * Genere un tableau de 3 entiers au hasard
+     * @return tableau de 3 entiers
+     */
+    private int[] randomiser() {
+        int[] rdm = new int[3];
+        int clef1 = RAND.nextInt(10) + 1;
+        int clef2 = RAND.nextInt(10) + 1;
+        while (clef2 == clef1) clef2 = RAND.nextInt(10) + 1;
+        int clef3 = RAND.nextInt(10) + 1;
+        while ((clef3 == clef1) || (clef3 == clef2)) 
+            clef3 = RAND.nextInt(10) + 1;
+        rdm[0] = clef1;
+        rdm[1] = clef2;
+        rdm[2] = clef3;
+        return rdm;
+    }
+    
 }

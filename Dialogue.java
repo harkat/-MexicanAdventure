@@ -240,7 +240,7 @@ public class Dialogue
         String [] str = {"dans le club des motards fous !",
             "Quel est le constructeur de moto le plus connu " +
                 "au monde pour ses grosses cylindrées ? : ", 
-            " 1-Suzuki \n 2-Renault  \n 3- Ferrari \n 4- Harley davidson",
+            " 1- Suzuki \n 2- Renault  \n 3- Ferrari \n 4- Harley davidson",
             "4"} ;
         return str ; 
     }

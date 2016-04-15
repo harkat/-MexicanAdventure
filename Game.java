@@ -44,6 +44,7 @@ public class Game
         
         Dialogue diag = new Dialogue(carte.currentRoom, this.hero) ;
         diag.dialogueMaker();
+        afficherCourant();
         boolean finished = false;
         while (!finished && !this.hero.etreMort() ) {
             Command command = parser.getCommand();
@@ -86,21 +87,6 @@ public class Game
         System.out.print("Appuyez sur n'importe quelle " +
             "touche pour commencer..."); 
         sc.nextLine();
-        System.out.println();
-        System.out.println("Vous êtes " + carte.currentRoom.getDescription());
-        System.out.print("Sorties: ");
-        if (carte.currentRoom.northExit != null) {
-            System.out.print("nord ");
-        }
-        if (carte.currentRoom.eastExit != null) {
-            System.out.print("est ");
-        }
-        if (carte.currentRoom.southExit != null) {
-            System.out.print("sud ");
-        }
-        if (carte.currentRoom.westExit != null) {
-            System.out.print("ouest ");
-        }
         System.out.println();
     }
 
@@ -197,25 +183,32 @@ public class Game
                 System.out.println("Le jeu est terminé");
                 return;
             }            
-            System.out.println("Vous êtes " +
-                carte.currentRoom.getDescription());
-            System.out.print("Sorties: ");
-            if (carte.currentRoom.northExit != null) {
-                System.out.print("nord ");
-            }
-            if (carte.currentRoom.eastExit != null) {
-                System.out.print("est ");
-            }
-            if (carte.currentRoom.southExit != null) {
-                System.out.print("sud ");
-            }
-            if (carte.currentRoom.westExit != null) {
-                System.out.print("ouest ");
-            }            
-            System.out.println();          
+            afficherCourant();
         }
     }
-
+    
+    /**
+     * Affiche la Room courante et les issues possibles
+     */
+    private void afficherCourant() {
+        System.out.println("Vous êtes " +
+            carte.currentRoom.getDescription());
+        System.out.print("Sorties: ");
+        if (carte.currentRoom.northExit != null) {
+            System.out.print("nord ");
+        }
+        if (carte.currentRoom.eastExit != null) {
+            System.out.print("est ");
+        }
+        if (carte.currentRoom.southExit != null) {
+            System.out.print("sud ");
+        }
+        if (carte.currentRoom.westExit != null) {
+            System.out.print("ouest ");
+        }            
+        System.out.println();
+    }
+    
     /** 
      * "Quit" was entered. Check the rest of the command to see
      * whether we really quit the game.
