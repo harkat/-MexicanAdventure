@@ -9,18 +9,31 @@ public class Nourriture extends Objet
 {
     // a remplacer plutard par une table associative
     /**
-     * tag l'index vers l'energie de la nourriture
      * energie l'energie donnee au personnage
      */
-    private int tag;
     private int energie;
     /**
      * cree une nourriture
-     * @param nrg l'energie qui donne au personnage
      */
-    public Nourriture(int nrg) {
-        super(0);
-        this.energie = nrg;
+    public Nourriture() {
+        super();
+        switch(this.nom) {
+            case "taco" :
+                this.energie = 10;
+                break;
+            case "soushi" :
+                this.energie = 6;
+                break;
+            case "kebab" :
+                this.energie = 8;
+                break;
+            case "hamburger" :
+                this.energie = 7;
+                break;
+            case "hot-dog" :
+                this.energie = 5;
+                break;  
+        }
     }
 }
 

@@ -142,7 +142,7 @@ public class Dialogue
     {
         String [] str = {"dans le club où tout est permis !",
             "Quelle est la probabilité en pourcentage " +
-                "d'avoir une main Quinte au jeu de Poker 32 carte ?  : ",
+                "d'avoir une main Quinte \nau jeu de Poker 32 carte ?  : ",
             " 1-10% \n 2-2% \n 3-40% \n 4-60%",
             "2"} ;
         return str ;
@@ -182,7 +182,7 @@ public class Dialogue
     {
         String [] str = {"dans la Forêt sauvage, où seuls " +
                 "les braves ont leur place !", 
-            " Quel est le carré du tiers de 12 ? : ", 
+            "Quel est le carré du tiers de 12 ? : ", 
             " 1- 17 \n 2- 15  \n 3- 4  \n 4- 16",
             "4"} ;
         return str ;
@@ -210,7 +210,7 @@ public class Dialogue
     {
         String [] str = {"dans le chapiteau du cirque " +
                 "des acrobaties dangeureuses !",
-            " Pendant combien de jours un être " +
+            "Pendant combien de jours un être " +
                 "humain peu vivre sans manger ? : ",
             " 1- 5 jours \n 2- 9 jours  \n 3- 7 jours  \n 4- 30 jours",
             "4"} ;
@@ -239,7 +239,7 @@ public class Dialogue
     {
         String [] str = {"dans le club des motards fous !",
             "Quel est le constructeur de moto le plus connu " +
-                "au monde pour ses grosses cylindrées ? : ", 
+                "au monde pour ses \ngrosses cylindrées ? : ", 
             " 1- Suzuki \n 2- Renault  \n 3- Ferrari \n 4- Harley davidson",
             "4"} ;
         return str ; 
@@ -254,7 +254,7 @@ public class Dialogue
         String [] str = {"au bord de l'avion qui vole vers " +
                 "toutes les destinations !",
             "Quelle est l'altitude minimale en M  à " +
-                "partir de laquelle l'avion peut voler ? : ",
+                "partir de laquelle l'avion peut \nvoler ? : ",
             " 1- 1000 m \n 2- 8000 m  \n 3- 50 m \n 4- 600 m ",
             "2"} ;
         return str ;        

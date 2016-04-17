@@ -23,41 +23,43 @@ public abstract class Objet
 
     /**
      * cree un objet
-     * @param pts les points appotes
      */
-    protected Objet(int pts) {
-        this.nom = genererNom();
-        this.points = pts;
+    protected Objet() {
+        genererObjet();
     }
     
     /**
      * methode genere le nom d'un Objet
-     * @return nom le nom de l'objet
      */
-    private String genererNom() {
-        String nm = "";
+    private void genererObjet() {
         int tag = RAND.nextInt(5) + 1;
         
         if (this instanceof Relique) {
             switch(tag) {
                 case 1 :
-                    nom = "medaillon";
+                    nom    = "medaillon";
+                    points = 1000;
                     break;
                 case 2 :
-                    nom = "croix";
+                    nom    = "croix";
+                    points = 400;
                     break;
                 case 3 :
-                    nom = "sceptre";
+                    nom    = "sceptre";
+                    points = 1500;
                     break;
                 case 4 :
-                    nom = "montre";
+                    nom    = "montre";
+                    points = 800;
                     break;
                 case 5 :
-                    nom = "bague";
+                    nom    = "bague";
+                    points = 1200;
                     break;  
             }
         }
         else if (this instanceof Nourriture) {
+            points = 0;
             switch(tag) {
                 case 1 :
                     nom = "taco";
@@ -79,22 +81,27 @@ public abstract class Objet
         else if (this instanceof Instrument) {
             switch(tag) {
                 case 1 :
-                    nom = "guitar";
+                    nom    = "guitar";
+                    points = 90;
                     break;
                 case 2 :
-                    nom = "fouet";
+                    nom    = "fouet";
+                    points = 70;
                     break;
                 case 3 :
-                    nom = "sombrero";
+                    nom    = "sombrero";
+                    points = 60;
                     break;
                 case 4 :
-                    nom = "poison";
+                    nom    = "poison";
+                    points = 40;
                     break;
                 case 5 :
-                    nom = "couteau";
+                    nom    = "couteau";
+                    points = 80;
                     break;
             }
         }
-        return nm;
+
     }
 }

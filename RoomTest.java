@@ -103,7 +103,7 @@ public class RoomTest
     public void testSetObjet()
     {
         Room room = new Room("a la gare");
-        Objet instrument = new Instrument(100, 100);
+        Objet instrument = new Instrument();
         room.setObjet(instrument);
         assertEquals(room.objet, instrument);
     }

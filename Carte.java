@@ -83,6 +83,19 @@ public class Carte
         carte.put(11, satanFightArena);
         
         remplirMap();
+        
+        //mettre a jour les Romms créées
+        circus          = carte.get(1);
+        shaolineDojo    = carte.get(2);
+        zoo             = carte.get(3);
+        frankLeBargeLab = carte.get(4);
+        ferryBoat       = carte.get(5);
+        bar             = carte.get(6);
+        bikersClub      = carte.get(7);
+        wildForest      = carte.get(8);
+        casinoClub      = carte.get(9);
+        airplane        = carte.get(10);
+        satanFightArena = carte.get(11);
     }
     
     /**
@@ -96,9 +109,9 @@ public class Carte
     private void remplirMap() {
         int[] objClef = randomiser();
         //mettre des objets
-        Objet obj1 = new Instrument(100, 50);
-        Objet obj2 = new Nourriture(50);
-        Objet obj3 = new Relique(100, 1000);
+        Objet obj1 = new Instrument();
+        Objet obj2 = new Nourriture();
+        Objet obj3 = new Relique();
         
         Room temp1 = carte.get(objClef[0]);        
         Room temp2 = carte.get(objClef[1]);

@@ -67,7 +67,12 @@ public class CarteTest
     {
         Carte carte1 = new Carte();
         carte1.createRooms();
-        assertEquals(carte1.currentRoom.getDescription(), "au bar");
+        assertEquals(carte1.carte.get(1).getDescription(), "au cirque");
+        assertEquals(carte1.carte.get(3).getDescription(), "au zoo");
+        assertEquals(carte1.carte.get(5).getDescription(), "au ferryBoat");
+        assertEquals(carte1.carte.get(6).getDescription(), "au bar");
+        assertEquals(carte1.carte.get(9).getDescription(), "au casino");
+        assertEquals(carte1.carte.get(10).getDescription(), "à l'aéroport");
     }
 }
 

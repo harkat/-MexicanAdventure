@@ -14,11 +14,26 @@ public class Relique extends Objet
     private int valeur;
     /**
      * cree une relique
-     * @param pts les points appotes
-     * @param val la valeur de la relique
      */
-    public Relique(int pts, int val) {
-        super(pts);
-        this.valeur = val;
+    public Relique() {
+        super();        
+        switch(this.nom) {
+            case "medaillon" :
+                this.valeur = 1000;
+                break;
+            case "croix" :
+                this.valeur = 400;
+                break;
+            case "sceptre" :
+                this.valeur = 1500;
+                break;
+            case "montre" :
+                this.valeur = 800;
+                break;
+            case "bague" :
+                this.valeur = 1200;
+                break;  
+        }
     }
+    
 }

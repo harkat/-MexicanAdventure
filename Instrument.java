@@ -10,14 +10,28 @@ public class Instrument extends Objet
     /**
      * represente le degat qui peut causer
      */
-    private int degat;
+    private double degat;
     /**
      * cree un instrument
-     * @param pts les points appotes
-     * @param dgt le degat que peu causer
      */
-    public Instrument(int pts, int dgt) {
-        super(pts);
-        this.degat = dgt;
+    public Instrument() {
+        super();
+        switch(this.nom) {
+            case "guitar" :
+                this.degat = 4;
+                break;
+            case "fouet" :
+                this.degat = 2;
+                break;
+            case "sombrero" :
+                this.degat = 1;
+                break;
+            case "poison" :
+                this.degat = 2;
+                break;
+            case "couteau" :
+                this.degat = 3;
+                break;  
+        }
     }
 }
