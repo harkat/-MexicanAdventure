@@ -83,7 +83,7 @@ public class Dialogue
                 "si tu veux que je te dise où se" + 
                 " trouve le catcheur mafieux Satan.\n" +
                 "Il faut que tu sois capable de répondre à une question... ");
-            System.out.print("appuyer sur \"ENTER\" pour cotinuer..."); 
+            System.out.print("Appuyer sur \"ENTER\" pour cotinuer..."); 
             sc.nextLine();
             System.out.print("Veux-tu répondre à ma question ? " +
                 "(\"oui\" : pour ouais) : ");
@@ -100,22 +100,22 @@ public class Dialogue
                 String str1 = sc.nextLine();
                 if (str1.equals(content[3])) {
                     System.out.println("Bien joué ! " +
-                        "le catcheur mafieux SATAN " +
+                        "Le catcheur mafieux SATAN " +
                         "se trouve dans la direction : \n" +
                         curentRoom.directSortie) ;
                 }
                 else {
                     this.hero.ajouterVie (-1.00);
-                    System.out.println("Mauvaise réponse ! je ne " +
+                    System.out.println("Mauvaise réponse ! Je ne " +
                         "peux rien te dire sur SATAN ! \n" +
-                        "à la prochaine fois...") ;  
+                        "À la prochaine fois...") ;  
                     System.out.println("Vous avez perdu 1 point de vie !" +
-                        " il vous reste : " + this.hero.getVie() + " ptVie");
+                        " Il vous reste : " + this.hero.getVie() + " ptVie");
                 }   
             } 
             else {
                 System.out.println("Hahaha je comprends " +
-                    "que tu as peur mon petit " + this.hero.getNom() +
+                    "que tu as peur mon petit, " + this.hero.getNom() +
                     "\n" + "à la prochaine fois...") ;  
             }           
             System.out.println();   
@@ -271,10 +271,10 @@ public class Dialogue
         System.out.println("**************************************************"
             + "\n" +
             "Enfin tu m'as retrouvé petit catcheur mexicain ! " +
-            "j'ai entendu dire que" + "\n" +
+            "J'ai entendu dire que" + "\n" +
             "que pendant un certain moment, " +
             "tu m'as cherché un peu partout" + "\n" +
-            "dans le monde ! t'es devant moi maintenant... ");
+            "dans le monde ! Tu es devant moi maintenant... ");
         System.out.print("Appuyez sur \"ENTER\" pour cotinuer..."); 
         sc.nextLine();
         System.out.println("Qu'attends tu de moi au juste ?");
@@ -291,7 +291,7 @@ public class Dialogue
         if (str.equals("oui")) {
             System.out.println ("dis moi: "); 
             System.out.print("Cette personne est punis " +
-                "quand elle fait une tentative de crime, " +
+                "quand elle fait une tentative de crime, " + "\n" +
                 "mais elle ne l'est pas si elle le commet ? : ");
             String str2 = sc.nextLine();
             if (str2.contains("kamikaze")) {

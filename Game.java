@@ -77,7 +77,7 @@ public class Game
         System.out.println("Salut " + this.hero.getNom() + ",");
         System.out.println("Soyez le bienvenue dans les " +
             "aventures du Catcheur Mexicain!");
-        System.out.println("les aventures du Catcheur Mexicain " +
+        System.out.println("Les aventures du Catcheur Mexicain " +
             "est un nouveau jeu, ");
         System.out.println("super cool que même " +
             "Ubisoft envie.");
