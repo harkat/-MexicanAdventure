@@ -42,7 +42,7 @@ public class Game
         this.hero = new Hero (str) ;
         printWelcome();
         
-        Dialogue diag = new Dialogue(carte.currentRoom, this.hero) ;
+        DialogueRoom diag = new DialogueRoom(carte.currentRoom, this.hero, carte.currentRoom.objet) ;
         diag.dialogueMaker();
         afficherCourant();
         boolean finished = false;
@@ -52,7 +52,7 @@ public class Game
                 String direction = command.getSecondWord();
                 Room nextRoom = carte.currentRoom.nextRoom(direction) ;
                 if (nextRoom != null) {
-                    diag = new Dialogue(nextRoom, this.hero) ;
+                    diag = new DialogueRoom(nextRoom, this.hero, carte.currentRoom.objet) ;
                     diag.dialogueMaker();
                 }
             }
