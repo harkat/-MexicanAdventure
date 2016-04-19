@@ -69,7 +69,8 @@ public class DialogueTest
     {
         Room room = new Room("a la gare");
         Hero hero = new Hero("neo");
-        Dialogue dialogue = new Dialogue(room, hero);
+        Objet objet = new Relique();
+        DialogueRoom dialogue = new DialogueRoom(room, hero, objet);
         assertEquals(dialogue.circusTalk()[3], "4");
     }
     
@@ -81,7 +82,8 @@ public class DialogueTest
     {
         Room room = new Room("a la gare");
         Hero hero = new Hero("neo");
-        Dialogue dialogue = new Dialogue(room, hero);
+        Objet objet = new Relique();
+        DialogueRoom dialogue = new DialogueRoom(room, hero, objet);
         assertEquals(dialogue.dojoTalk()[3], "1");
     }
     
@@ -93,7 +95,8 @@ public class DialogueTest
     {
         Room room = new Room("a la gare");
         Hero hero = new Hero("neo");
-        Dialogue dialogue = new Dialogue(room, hero);
+        Objet objet = new Relique();
+        DialogueRoom dialogue = new DialogueRoom(room, hero, objet);
         assertEquals(dialogue.zooTalk()[3], "2");
     }
     
@@ -105,7 +108,8 @@ public class DialogueTest
     {
         Room room = new Room("a la gare");
         Hero hero = new Hero("neo");
-        Dialogue dialogue = new Dialogue(room, hero);
+        Objet objet = new Relique();
+        DialogueRoom dialogue = new DialogueRoom(room, hero, objet);
         assertEquals(dialogue.labTalk()[3], "3");
     }
     
@@ -117,7 +121,8 @@ public class DialogueTest
     {
         Room room = new Room("a la gare");
         Hero hero = new Hero("neo");
-        Dialogue dialogue = new Dialogue(room, hero);
+        Objet objet = new Relique();
+        DialogueRoom dialogue = new DialogueRoom(room, hero, objet);
         assertEquals(dialogue.ferryTalk()[3], "1");
     }
     
@@ -129,7 +134,8 @@ public class DialogueTest
     {
         Room room = new Room("a la gare");
         Hero hero = new Hero("neo");
-        Dialogue dialogue = new Dialogue(room, hero);
+        Objet objet = new Relique();
+        DialogueRoom dialogue = new DialogueRoom(room, hero, objet);
         assertEquals(dialogue.barTalk()[3], "2");
     }
     
@@ -141,7 +147,8 @@ public class DialogueTest
     {
         Room room = new Room("a la gare");
         Hero hero = new Hero("neo");
-        Dialogue dialogue = new Dialogue(room, hero);
+        Objet objet = new Relique();
+        DialogueRoom dialogue = new DialogueRoom(room, hero, objet);
         assertEquals(dialogue.bikeTalk()[3], "4");
     }
     
@@ -153,7 +160,8 @@ public class DialogueTest
     {
         Room room = new Room("a la gare");
         Hero hero = new Hero("neo");
-        Dialogue dialogue = new Dialogue(room, hero);
+        Objet objet = new Relique();
+        DialogueRoom dialogue = new DialogueRoom(room, hero, objet);
         assertEquals(dialogue.forestTalk()[3], "4");
     }
     
@@ -165,7 +173,8 @@ public class DialogueTest
     {
         Room room = new Room("a la gare");
         Hero hero = new Hero("neo");
-        Dialogue dialogue = new Dialogue(room, hero);
+        Objet objet = new Relique();
+        DialogueRoom dialogue = new DialogueRoom(room, hero, objet);
         assertEquals(dialogue.casinoTalk()[3], "2");
     }
     
@@ -177,7 +186,8 @@ public class DialogueTest
     {
         Room room = new Room("a la gare");
         Hero hero = new Hero("neo");
-        Dialogue dialogue = new Dialogue(room, hero);
+        Objet objet = new Relique();
+        DialogueRoom dialogue = new DialogueRoom(room, hero, objet);
         assertEquals(dialogue.planeTalk()[3], "2");
     }
 }
