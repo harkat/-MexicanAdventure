@@ -32,7 +32,8 @@ public abstract class Objet
      * methode genere le nom d'un Objet
      */
     private void genererObjet() {
-        int tag = RAND.nextInt(5) + 1;
+        int tag = RAND.nextInt(7) + 1;
+        int tagNI = RAND.nextInt(5) + 1;
         
         if (this instanceof Relique) {
             switch(tag) {
@@ -55,12 +56,20 @@ public abstract class Objet
                 case 5 :
                     nom    = "bague";
                     points = 1200;
-                    break;  
+                    break;
+                case 6 :
+                    nom    = "coffret";
+                    points = 1100;
+                    break; 
+                case 7 :
+                    nom    = "livre";
+                    points = 1300;
+                    break; 
             }
         }
         else if (this instanceof Nourriture) {
             points = 0;
-            switch(tag) {
+            switch(tagNI) {
                 case 1 :
                     nom = "taco";
                     break;
@@ -79,7 +88,7 @@ public abstract class Objet
             }
         }
         else if (this instanceof Instrument) {
-            switch(tag) {
+            switch(tagNI) {
                 case 1 :
                     nom    = "guitar";
                     points = 90;

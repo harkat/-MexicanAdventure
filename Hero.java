@@ -15,7 +15,7 @@ public class Hero implements Personnage
     private String nom ;
     private double ptVie ;
     private int score ;
-    private Relique[] prise = new Relique[5] ;
+    private Relique[] prise = new Relique[3] ;
     /**
      * constructeur Hero
      * @param n le nom du Hero

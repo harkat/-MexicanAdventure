@@ -32,7 +32,13 @@ public class Relique extends Objet
                 break;
             case "bague" :
                 this.valeur = 1200;
-                break;  
+                break; 
+            case "coffret" :
+                this.valeur = 1100;
+                break; 
+            case "livre" :
+                this.valeur = 1300;
+                break; 
         }
     }
     
