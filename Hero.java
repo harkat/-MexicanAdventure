@@ -73,4 +73,17 @@ public class Hero implements Personnage
         this.ajouterVie (-blessure) ;
     }
     
+    /**
+     * méthode pour savoir si le héro posséde bien les 3 reliques
+     * @return true si il possède les 3 reliques
+     */
+    public possederRelique(){
+        boolean res = true;
+        for(int i=0;i<3;i++){
+            if(prise[i] == null){
+                res = false;
+            }
+        }
+        return res;
+    }
 }      
