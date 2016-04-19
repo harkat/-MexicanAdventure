@@ -35,5 +35,9 @@ public class Nourriture extends Objet
                 break;  
         }
     }
+    
+    public int getEnergie() {
+        return this.energie;
+    }
 }
 

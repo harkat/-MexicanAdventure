@@ -34,4 +34,8 @@ public class Instrument extends Objet
                 break;  
         }
     }
+    
+    public double getDegat() {
+        return this.degat;
+    }
 }

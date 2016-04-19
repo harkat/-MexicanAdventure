@@ -41,5 +41,8 @@ public class Relique extends Objet
                 break; 
         }
     }
-    
+
+    public int getValeur() {
+        return this.valeur;
+    }
 }

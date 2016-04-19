@@ -113,4 +113,12 @@ public abstract class Objet
         }
 
     }
+    
+    public String getNom() {
+        return this.nom;
+    }
+    
+    public int getPoints() {
+        return this.points;
+    }
 }
