@@ -7,10 +7,19 @@ import java.util.Scanner;
  */
 public class DialogueRoom extends Dialogue
 {
-   public DialogueRoom (Room rm, Hero pr,Objet obj){
-       super (rm,pr,obj);
+    /**
+     * Constructeur DialogueObjet
+     * @param rm Room concernee par le dialogue
+     * @param pr Hero concerne par le dialogue
+     * @param obj Objet concerne par le dialogue
+     */
+    public DialogueRoom (Room rm, Hero pr, Objet obj) {
+       super (rm, pr, obj);
     }  
    
+    /**
+     * selecteur de dialogue
+     */
     public void dialogueMaker()
     {
         String [] content = null ;

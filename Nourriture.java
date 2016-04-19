@@ -36,6 +36,10 @@ public class Nourriture extends Objet
         }
     }
     
+    /**
+     * accesseur energie
+     * @return energie
+     */
     public int getEnergie() {
         return this.energie;
     }

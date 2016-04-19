@@ -114,10 +114,18 @@ public abstract class Objet
 
     }
     
+    /**
+     * accesseur nom
+     * @return nom
+     */
     public String getNom() {
         return this.nom;
     }
     
+    /**
+     * accesseur points
+     * @return points
+     */
     public int getPoints() {
         return this.points;
     }

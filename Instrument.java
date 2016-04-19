@@ -35,6 +35,10 @@ public class Instrument extends Objet
         }
     }
     
+    /**
+     * accesseur degat
+     * @return degat
+     */
     public double getDegat() {
         return this.degat;
     }
