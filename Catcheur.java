@@ -20,7 +20,7 @@ public class Catcheur extends Adversaire
     /**
      * permet de mettre a jour les points
      * du Catcheur attaquant et de le Personnage attaque
-     * apres un attaque
+     * apres une attaque
      * @param p le Personnage attaque
      */
     public void attaquer(Personnage p) {

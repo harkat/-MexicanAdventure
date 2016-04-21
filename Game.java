@@ -228,4 +228,35 @@ public class Game
             return true;  // signal that we want to quit
         }
     }
+    	/**
+	* Accesseurs
+	*
+	* Accesseur du parser
+	*
+	* @return parser
+	*/
+	public Parser getParser() {
+	
+		return parser;
+	}
+	
+	/**
+	* Accesseur carte
+	* 
+	* @return carte
+	*/
+	public Carte getCarte() {
+	
+		return carte;
+	}
+	
+	/**
+	* Accesseur hero
+	*
+	* @return hero
+	*/
+	public Hero getHero() {
+	
+		return hero;
+	}
 }

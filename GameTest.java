@@ -135,6 +135,7 @@ public class GameTest
     {
         //Libérez ici les ressources engagées par setUp()
     }
+	
     
     ///**
     // * Teste la creation du jeu et la sortie
