@@ -42,38 +42,38 @@ public abstract class Adversaire implements Personnage
         if (this instanceof Catcheur) {
             switch(tag) {
                 case 1 :
-                    nom = "l'ourse";
+                    nom = "L'ourse";
                     break;
                 case 2 :
-                    nom = "le parfeu";
+                    nom = "Le parfeu";
                     break;
                 case 3 :
-                    nom = "l'araignee";
+                    nom = "L'araignee";
                     break;
                 case 4 :
-                    nom = "le tigre";
+                    nom = "Le tigre";
                     break;
                 case 5 :
-                    nom = "le bourreau";
+                    nom = "Le bourreau";
                     break;  
             }
         }
         else if (this instanceof Monstre) {
             switch(tag) {
                 case 1 :
-                    nom = "dark vador";
+                    nom = "Dark vador";
                     break;
                 case 2 :
-                    nom = "hulk";
+                    nom = "Hulk";
                     break;
                 case 3 :
-                    nom = "goro";
+                    nom = "Goro";
                     break;
                 case 4 :
-                    nom = "doubleface";
+                    nom = "Doubleface";
                     break;
                 case 5 :
-                    nom = "le fou";
+                    nom = "Le fou";
                     break;
             }
         }
