@@ -6,17 +6,17 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * The test class CatcheurTest.
+ * The test class MonstreTest.
  *
  * @author Jerry
  * @version V3
  */
-public class CatcheurTest
+public class MonstreTest
 {
     /**
-     * Default constructor for test class CatcheurTest
+     * Default constructor for test class MonstreTest
      */
-    public CatcheurTest()
+    public MonstreTest()
     {
     }
 
@@ -39,8 +39,7 @@ public class CatcheurTest
     public void tearDown()
     {
     }
-    
-    
+        
     /**
      * methode verifier
      * comme Lanceur.assertEquals mais plus rapide a ecrire
@@ -55,7 +54,7 @@ public class CatcheurTest
      */@Test
     public void test_0_Initial() 
     {
-        Catcheur ca = new Catcheur(10);
+        Monstre mo = new Monstre(10);
     }
     /**
     * Test des CONSTRUCTEURS
@@ -66,16 +65,16 @@ public class CatcheurTest
     public void test_1_a_ConstructeurPtVieParamValide()
     {
         //test
-        Catcheur ca = new Catcheur(10);
+        Monstre mo = new Monstre(10);
         
-        //verification des resultats
-        verifier(10.0, ca.getVie(), "Probleme constructeur pv attendu 10");
+        //verifition des resultats
+        verifier(10.0, mo.getVie(), "Probleme constructeur pv attendu 10");
         
         //test
-        Catcheur ca2 = new Catcheur(-10);
+        Monstre mo2 = new Monstre(-10);
         
         //verification des resultats
-        verifier(10.0, ca2.getVie(), "Probleme constructeur pv ne peuvent etre negatif, pv a 10 par defaut");        
+        verifier(10.0, mo2.getVie(), "Probleme constructeur pv ne peuvent etre negatif, pv a 10 par defaut");        
     }
     /**
     * Test des METHODES
@@ -87,15 +86,15 @@ public class CatcheurTest
     public void test_2_a_Attaquer()
     {
         //depart
-        Catcheur ca = new Catcheur(10);
-        Catcheur adv = new Catcheur(10); // adversaire valide 10 ptVie
+        Monstre mo = new Monstre(10);
+        Monstre adv = new Monstre(10); // adversaire valide 10 ptVie
         
         //test
-        ca.attaquer(adv);
+        mo.attaquer(adv);
         
         //verification des resultats
         verifier(5.0, adv.getVie(), "Adversaire ne perd pas le bon nombre de ptVie");
-        verifier(10.0, ca.getVie(), "Catcheur ne doit pas perdre de vie");
+        verifier(10.0, mo.getVie(), "Monstre ne doit pas perdre de vie");
     }
     
    /**
@@ -105,28 +104,28 @@ public class CatcheurTest
     public void test_3_a_subirFrappe()
     {
         //depart
-        Catcheur ca = new Catcheur(10);
+        Monstre mo = new Monstre(10);
         
         //test
-        ca.subirFrappe(5);
+        mo.subirFrappe(5);
         
         //verification des resultats
-        verifier(5.0, ca.getVie(), "Catcheur ne perd pas le bon nombre de ptvie");
+        verifier(5.0, mo.getVie(), "Monstre ne perd pas le bon nombre de ptvie");
         
         //test degats plus eleve que les ptvie
-        ca.subirFrappe(10);
+        mo.subirFrappe(10);
         
         //verification des resultats
-        verifier(0.0, ca.getVie(), "Vie de Catcheur doit etre a 0");
+        verifier(0.0, mo.getVie(), "Vie de Monstre doit etre a 0");
         
         //depart
-        Catcheur ca2 = new Catcheur(10);        
+        Monstre mo2 = new Monstre(10);        
         
         //test degats negatifs
-        ca2.subirFrappe(-10);
+        mo2.subirFrappe(-10);
         
         //verification des resultats
-        verifier(10.0, ca2.getVie(), "Les degats ne peuvent etre negatifs");        
+        verifier(10.0, mo2.getVie(), "Les degats ne peuvent etre negatifs");        
     }
     
    /**
@@ -136,18 +135,20 @@ public class CatcheurTest
     public void test_4_a_ajouterVie()
     {
         //depart
-        Catcheur ca = new Catcheur(10);
+        Monstre mo = new Monstre(10);
         
         //test
-        ca.ajouterVie(5);
+        mo.ajouterVie(5);
         
         //verification des resultats
-        verifier(15.0, ca.getVie(), "Catcheur n'a pas le bon nombre de ptvie");
+        verifier(15.0, mo.getVie(), "Monstre n'a pas le bon nombre de ptvie");
         
         //test nombre negatif
-        ca.ajouterVie(-10);
+        mo.ajouterVie(-10);
         
         //verification des resultats
-        verifier(15.0, ca.getVie(), "Le catcheur ne doit pas perdre de point de vie si on entre un nombre negatif");
+        verifier(15.0, mo.getVie(), "Le monstre ne doit pas perdre de point de vie si on entre un nombre negatif");
     }
 }
+
+
