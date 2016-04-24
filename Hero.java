@@ -12,10 +12,10 @@ public class Hero implements Personnage
     /**
      * attributs de Hero
      */
-    private String nom ;
-    private double ptVie ;
-    private final double MAX = 15;
-    private int score ;
+    private String nom;
+    private double ptVie;
+    private static final double MAX = 15;
+    private int score;
     private Relique[] prise = new Relique[3];
     private Instrument instrument;
     /**
@@ -101,17 +101,19 @@ public class Hero implements Personnage
         if (i < this.prise.length) this.prise[i] = rlq;
     }
     
-    public boolean priseEstVide() {
+    private boolean priseEstVide() {
         return (this.prise[0] == null);
     }
     
     private void afficherPrise() {
         int i = 0;
+        int val = 0;
         while (i < prise.length && this.prise[i] != null) {
             System.out.print("- " + this.prise[i].getNom() + "  ");
+            val = val + this.prise[i].getValeur();
             i++;
         }
-        System.out.println();
+        System.out.println(", d'une valeur totale de " + val + " €");
     }
     
     /**
@@ -122,15 +124,19 @@ public class Hero implements Personnage
         this.instrument = instr;
     }
     
+    public void setScore(int points) {
+        this.score = this.score + points;
+    }
+    
     public void inventaire() {
         System.out.println("Vous avez : " + this.ptVie + " points de vie");
         System.out.println("Votre score est de : " + this.score);
         if (!priseEstVide()) {
-            System.out.println("Vous portez les reliques suivant :");
+            System.out.println("Vous portez le(s) relique(s) suivant(s) :");
             afficherPrise();
         }
         if (this.instrument != null)
-            System.out.println(" et vous avez " + 
+            System.out.println("et vous avez : " + 
                 this.instrument.getNom() + " comme instrument");
     }
 }      

@@ -58,9 +58,10 @@ public class Game
                     diag.dialogueMaker();
                     Objet obj = nextRoom.objet;
                     if ((obj != null) && (obj instanceof Relique)) {
-                        this.hero.setPrise((Relique)obj);
                         System.out.print("Super!! je viens de ");
                         System.out.println("trouver ça : " + obj.getNom());
+                        this.hero.setPrise((Relique)obj);
+                        this.hero.setScore(((Relique)obj).getPoints());
                         this.carte.currentRoom.nextRoom(direction).objet = null;
                     }
                     
@@ -69,8 +70,9 @@ public class Game
                         System.out.println("ça me donne de l'énérgie.");
                         this.hero.ajouterVie(((Nourriture)obj).getEnergie());
                         System.out.print("désormais j'ais : ");
-                        System.out.println(this.hero.getVie() + " points");
+                        System.out.println(hero.getVie() + " points de vie");
                         this.carte.currentRoom.nextRoom(direction).objet = null;
+                        System.out.println();
                     }
                     
                     if ((obj != null) && (obj instanceof Instrument)) {
@@ -78,7 +80,9 @@ public class Game
                         System.out.print(obj.getNom());
                         System.out.println(", ça peut servir");
                         this.hero.setInstrument((Instrument)obj);
+                        this.hero.setScore(((Instrument)obj).getPoints());
                         this.carte.currentRoom.nextRoom(direction).objet = null;
+                        System.out.println();
                     }
                 }
             }
@@ -161,7 +165,8 @@ public class Game
     {
         System.out.println("Ne paniquez surtout pas, je suis là pour vous");
         System.out.println("Vous pouvez taper : ");
-        System.out.println("aller [sud, est, ouest, nord], quitter, aide");
+        System.out.println("aller [sud, est, ouest, nord]," +
+            " quitter, aide, inventaire");
         System.out.println();
         afficherCourant();
     }
