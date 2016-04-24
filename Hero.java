@@ -14,8 +14,10 @@ public class Hero implements Personnage
      */
     private String nom ;
     private double ptVie ;
+    private final double MAX = 15;
     private int score ;
-    private Relique[] prise = new Relique[3] ;
+    private Relique[] prise = new Relique[3];
+    private Instrument instrument;
     /**
      * constructeur Hero
      * @param n le nom du Hero
@@ -52,6 +54,7 @@ public class Hero implements Personnage
      */
     public void ajouterVie (double num) {
         this.ptVie = this.ptVie + num ;
+        if (this.ptVie > MAX) this.ptVie = MAX;
     }
     /**
      * permet de calculer les points perdus a cause d'une frappe
@@ -96,5 +99,13 @@ public class Hero implements Personnage
         while (i < prise.length && this.prise[i] != null) i++;
         
         if (i < this.prise.length) this.prise[i] = rlq;
+    }
+    
+    /**
+     * recuper l'instrument
+     * @param instr l'instrument recuperer
+     */
+    public void setInstrument(Instrument instr) {
+        this.instrument = instr;
     }
 }      

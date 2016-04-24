@@ -57,10 +57,27 @@ public class Game
                         carte.currentRoom.objet) ;
                     diag.dialogueMaker();
                     Objet obj = nextRoom.objet;
-                    if (obj != null && obj instanceof Relique) {
+                    if ((obj != null) && (obj instanceof Relique)) {
                         this.hero.setPrise((Relique)obj);
                         System.out.print("Super!! je viens de ");
-                        System.out.println("trouver une Relique");
+                        System.out.println("trouver ça : " + obj.getNom());
+                        this.carte.currentRoom.nextRoom(direction).objet = null;
+                    }
+                    
+                    if ((obj != null) && (obj instanceof Nourriture)) {
+                        System.out.print("Tiens un " + obj.getNom() + "! ");
+                        System.out.println("ça me donne de l'énérgie.");
+                        this.hero.ajouterVie(((Nourriture)obj).getEnergie());
+                        System.out.print("désormais j'ais : ");
+                        System.out.println(this.hero.getVie() + " points");
+                        this.carte.currentRoom.nextRoom(direction).objet = null;
+                    }
+                    
+                    if ((obj != null) && (obj instanceof Instrument)) {
+                        System.out.print("Voyons c'est quoi ça? ");
+                        System.out.print(obj.getNom());
+                        System.out.println(", ça peut servir");
+                        this.hero.setInstrument((Instrument)obj);
                         this.carte.currentRoom.nextRoom(direction).objet = null;
                     }
                 }

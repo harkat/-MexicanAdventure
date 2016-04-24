@@ -11,7 +11,7 @@ public class Nourriture extends Objet
     /**
      * energie l'energie donnee au personnage
      */
-    private int energie;
+    private double energie;
     /**
      * cree une nourriture
      */
@@ -40,7 +40,7 @@ public class Nourriture extends Objet
      * accesseur energie
      * @return energie
      */
-    public int getEnergie() {
+    public double getEnergie() {
         return this.energie;
     }
 }
