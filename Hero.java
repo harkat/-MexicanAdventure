@@ -101,11 +101,36 @@ public class Hero implements Personnage
         if (i < this.prise.length) this.prise[i] = rlq;
     }
     
+    public boolean priseEstVide() {
+        return (this.prise[0] == null);
+    }
+    
+    private void afficherPrise() {
+        int i = 0;
+        while (i < prise.length && this.prise[i] != null) {
+            System.out.print("- " + this.prise[i].getNom() + "  ");
+            i++;
+        }
+        System.out.println();
+    }
+    
     /**
      * recuper l'instrument
      * @param instr l'instrument recuperer
      */
     public void setInstrument(Instrument instr) {
         this.instrument = instr;
+    }
+    
+    public void inventaire() {
+        System.out.println("Vous avez : " + this.ptVie + " points de vie");
+        System.out.println("Votre score est de : " + this.score);
+        if (!priseEstVide()) {
+            System.out.println("Vous portez les reliques suivant :");
+            afficherPrise();
+        }
+        if (this.instrument != null)
+            System.out.println(" et vous avez " + 
+                this.instrument.getNom() + " comme instrument");
     }
 }      

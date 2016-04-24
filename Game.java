@@ -133,6 +133,9 @@ public class Game
         if (commandWord.equals("aide")) {
             printHelp();
         }
+        else if (commandWord.equals("inventaire")) {
+            printInventaire();
+        }
         else if (commandWord.equals("aller")) {
             goRoom(command);
             if (carte.currentRoom.description.equals(
@@ -159,6 +162,12 @@ public class Game
         System.out.println("Ne paniquez surtout pas, je suis là pour vous");
         System.out.println("Vous pouvez taper : ");
         System.out.println("aller [sud, est, ouest, nord], quitter, aide");
+        System.out.println();
+        afficherCourant();
+    }
+    
+    private void printInventaire() {
+        this.hero.inventaire();
         System.out.println();
         afficherCourant();
     }
