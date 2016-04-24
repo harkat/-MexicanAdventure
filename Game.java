@@ -51,11 +51,18 @@ public class Game
             Command command = parser.getCommand();
             if (command.getSecondWord() != null) {
                 String direction = command.getSecondWord();
-                Room nextRoom = carte.currentRoom.nextRoom(direction) ;
+                Room nextRoom = carte.currentRoom.nextRoom(direction);
                 if (nextRoom != null) {
                     diag = new DialogueRoom(nextRoom, this.hero,
                         carte.currentRoom.objet) ;
                     diag.dialogueMaker();
+                    Objet obj = nextRoom.objet;
+                    if (obj != null && obj instanceof Relique) {
+                        this.hero.setPrise((Relique)obj);
+                        System.out.print("Super!! je viens de ");
+                        System.out.println("trouver une Relique");
+                        this.carte.currentRoom.nextRoom(direction).objet = null;
+                    }
                 }
             }
             finished = processCommand(command);
@@ -83,8 +90,6 @@ public class Game
             "est un nouveau jeu, ");
         System.out.println("super cool que même " +
             "Ubisoft envie.");
-        System.out.println("Pour avoir de l'aide sur " +
-            "les commandes, tapez: aide.");
         System.out.println();
         System.out.print("Appuyez sur n'importe quelle " +
             "touche pour commencer..."); 
@@ -114,7 +119,8 @@ public class Game
         else if (commandWord.equals("aller")) {
             goRoom(command);
             if (carte.currentRoom.description.equals(
-                "à l'arène finale de combat de Satan")) {
+                "à l'arène finale de combat de Satan") 
+                && this.hero.possederRelique()) {
                 wantToQuit = true ;
             }
         }
@@ -134,10 +140,10 @@ public class Game
     private void printHelp() 
     {
         System.out.println("Ne paniquez surtout pas, je suis là pour vous");
-        System.out.println("vous êtes à " + carte.currentRoom.description);
-        System.out.println();
         System.out.println("Vous pouvez taper : ");
         System.out.println("aller [sud, est, ouest, nord], quitter, aide");
+        System.out.println();
+        afficherCourant();
     }
 
     /** 
@@ -180,10 +186,17 @@ public class Game
                 "à l'arène finale de combat de Satan")) {
                 System.out.println("Vous êtes enfin arrivé " + 
                     carte.currentRoom.getDescription());
-                System.out.println("Félicitations, " +
-                    "vous avez atteint la zone finale");
-                System.out.println("Le jeu est terminé");
-                return;
+                if (this.hero.possederRelique()) {
+                    System.out.println("Félicitations, " +
+                        "vous avez atteint la zone finale");
+                    System.out.println("Le jeu est terminé");
+                    return;
+                }
+                else {
+                    System.out.println("mais vous n'avez pas " +
+                        "toutes les reliques");
+                    System.out.println("Revenez plus tard\n");
+                }
             }            
             afficherCourant();
         }
@@ -228,35 +241,35 @@ public class Game
             return true;  // signal that we want to quit
         }
     }
-    	/**
-	* Accesseurs
-	*
-	* Accesseur du parser
-	*
-	* @return parser
-	*/
-	public Parser getParser() {
-	
-		return parser;
-	}
-	
-	/**
-	* Accesseur carte
-	* 
-	* @return carte
-	*/
-	public Carte getCarte() {
-	
-		return carte;
-	}
-	
-	/**
-	* Accesseur hero
-	*
-	* @return hero
-	*/
-	public Hero getHero() {
-	
-		return hero;
-	}
+        /**
+    * Accesseurs
+    *
+    * Accesseur du parser
+    *
+    * @return parser
+    */
+    public Parser getParser() {
+    
+        return parser;
+    }
+    
+    /**
+    * Accesseur carte
+    * 
+    * @return carte
+    */
+    public Carte getCarte() {
+    
+        return carte;
+    }
+    
+    /**
+    * Accesseur hero
+    *
+    * @return hero
+    */
+    public Hero getHero() {
+    
+        return hero;
+    }
 }

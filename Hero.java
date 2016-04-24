@@ -86,4 +86,15 @@ public class Hero implements Personnage
         }
         return res;
     }
+    
+    /**
+     * remplit le tableau par des Relique collectee
+     * @param rlq la relique collectee
+     */
+    public void setPrise(Relique rlq) {
+        int i = 0;
+        while (i < prise.length && this.prise[i] != null) i++;
+        
+        if (i < this.prise.length) this.prise[i] = rlq;
+    }
 }      

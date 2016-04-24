@@ -146,7 +146,7 @@ public class Carte
         carte.put(11, temp7);
         
         int currInit = RAND.nextInt(10) + 1;
-        currentRoom = carte.get(currInit);
+        currentRoom = carte.get(10);
     }
     
     /**
