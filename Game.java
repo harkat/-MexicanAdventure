@@ -47,8 +47,7 @@ public class Game
         action.interactionMaker();
         afficherCourant();
         boolean finished = false;
-        while (!finished && !this.hero.etreMort() ) {            
-            
+        while (!finished && !this.hero.etreMort() ) {                        
                 Command command = parser.getCommand();
                 if (command.getSecondWord() != null) {
                     String direction = command.getSecondWord();
@@ -56,8 +55,7 @@ public class Game
                     if (nextRoom != null) {
                         if (nextRoom.getDescription().equals(
                             "à l'arène finale de combat de Satan")&&(!this.hero.possederRelique())) {
-                            System.out.println("");                            
-                        }
+                            ;}
                         else
                         {
                             action = new Interaction(nextRoom, this.hero) ;
@@ -259,8 +257,7 @@ public class Game
     *
     * @return parser
     */
-    public Parser getParser() {
-    
+    public Parser getParser() {    
         return parser;
     }
     
@@ -269,8 +266,7 @@ public class Game
     * 
     * @return carte
     */
-    public Carte getCarte() {
-    
+    public Carte getCarte() {    
         return carte;
     }
     
@@ -279,8 +275,12 @@ public class Game
     *
     * @return hero
     */
-    public Hero getHero() {
-    
+    public Hero getHero() {    
         return hero;
+    }
+    
+    public static void main(String[] args) {
+        Game game = new Game();
+        game.play();        
     }
 }

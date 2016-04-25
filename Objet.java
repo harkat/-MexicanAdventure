@@ -38,31 +38,31 @@ public abstract class Objet
         if (this instanceof Relique) {
             switch(tag) {
                 case 1 :
-                    nom    = "medaillon";
+                    nom    = "le medaillon ancestral";
                     points = 1000;
                     break;
                 case 2 :
-                    nom    = "croix";
+                    nom    = "la croix rouillé ";
                     points = 400;
                     break;
                 case 3 :
-                    nom    = "sceptre";
+                    nom    = "le sceptre sacré";
                     points = 1500;
                     break;
                 case 4 :
-                    nom    = "montre";
+                    nom    = "la montre temporelle";
                     points = 800;
                     break;
                 case 5 :
-                    nom    = "bague";
+                    nom    = "la bague magique";
                     points = 1200;
                     break;
                 case 6 :
-                    nom    = "coffret";
+                    nom    = "le coffret de pandore";
                     points = 1100;
                     break; 
                 case 7 :
-                    nom    = "livre";
+                    nom    = "le livre de magie";
                     points = 1300;
                     break; 
             }
@@ -71,42 +71,42 @@ public abstract class Objet
             points = 0;
             switch(tagNI) {
                 case 1 :
-                    nom = "taco";
+                    nom = "un tacos";
                     break;
                 case 2 :
-                    nom = "soushi";
+                    nom = "un soushi";
                     break;
                 case 3 :
-                    nom = "kebab";
+                    nom = "un kebab";
                     break;
                 case 4 :
-                    nom = "hamburger";
+                    nom = "un hamburger";
                     break;
                 case 5 :
-                    nom = "hot-dog";
+                    nom = "un hot-dog";
                     break;
             }
         }
         else if (this instanceof Instrument) {
             switch(tagNI) {
                 case 1 :
-                    nom    = "guitar";
+                    nom    = "une guitar";
                     points = 90;
                     break;
                 case 2 :
-                    nom    = "fouet";
+                    nom    = "un fouet";
                     points = 70;
                     break;
                 case 3 :
-                    nom    = "sombrero";
+                    nom    = "un sombrero";
                     points = 60;
                     break;
                 case 4 :
-                    nom    = "poison";
+                    nom    = "un poison";
                     points = 40;
                     break;
                 case 5 :
-                    nom    = "couteau";
+                    nom    = "un couteau";
                     points = 80;
                     break;
             }

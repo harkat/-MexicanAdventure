@@ -110,6 +110,7 @@ public class Interaction
                         "Le catcheur mafieux SATAN " +
                         "se trouve dans la direction : \n" +
                         curentRoom.directSortie) ;
+                    this.hero.setScore(500);
                 }
                 else {
                     this.hero.ajouterVie (-1.00);
@@ -282,11 +283,14 @@ public class Interaction
      */
     public void reliqueTalk ()
     {
-        System.out.print("Super!! je viens de ");
-        System.out.println("trouver ça : " + this.curentRoom.objet.getNom());
+        System.out.print("Super!! Une relique ! ");
+        System.out.println("C'est : " + this.curentRoom.objet.getNom());
+        System.out.print("Appuyez sur \"ENTER\" pour récupurer la relique"); 
+        sc.nextLine();
         this.hero.setPrise((Relique)this.curentRoom.objet);
         this.hero.setScore(((Relique)this.curentRoom.objet).getPoints());
-        this.curentRoom.objet = null;
+        System.out.println("Relique : "+ this.curentRoom.objet.getNom()+" récupurée"); 
+        this.curentRoom.objet = null;        
         System.out.println();
     }
     
@@ -295,12 +299,14 @@ public class Interaction
      */
     public void eatTalk ()
     {
-        System.out.print("Tiens un " + this.curentRoom.objet.getNom() + "! ");
-        System.out.println("ça me donne de l'énérgie.");
+        System.out.print("Tiens " + this.curentRoom.objet.getNom() + "! ");
+        System.out.println("ça peut me donner de l'énérgie.");
+        System.out.print("Appuyez sur \"ENTER\" pour récupurer la nouriture"); 
+        sc.nextLine();
         this.hero.ajouterVie(((Nourriture)this.curentRoom.objet).getEnergie());
-        System.out.print("désormais j'ai : ");
+        System.out.print("Cool, désormais j'ai : ");
         System.out.println(hero.getVie() + " points de vie");
-        this.curentRoom.objet = null;
+        this.curentRoom.objet = null;        
         System.out.println();
     }
     /**
@@ -310,10 +316,13 @@ public class Interaction
     {
         System.out.print("Voyons c'est quoi ça? ");
         System.out.print(this.curentRoom.objet.getNom());
-        System.out.println(", ça peut servir");
+        System.out.println(", ça peut servir !");
+        System.out.print("Appuyez sur \"ENTER\" pour récupurer l'instrument"); 
+        sc.nextLine();
         this.hero.setInstrument((Instrument)this.curentRoom.objet);
         this.hero.setScore(((Instrument)this.curentRoom.objet).getPoints());
-        this.curentRoom.objet = null;
+        System.out.println("Instrument : "+ this.curentRoom.objet.getNom()+" récupuré");
+        this.curentRoom.objet = null;        
         System.out.println();
     }
 
@@ -387,6 +396,7 @@ public class Interaction
         
         if (monstre.etreMort()) {
           System.out.println("Ouf ! c'était chaud ! "); 
+          this.hero.setScore(1000);
           this.curentRoom.adversaire = null ;
         }   
         if (this.hero.etreMort()){ 
@@ -443,6 +453,7 @@ public class Interaction
         
         if (catcheur.etreMort()) {
           System.out.println("Ouf ! c'était chaud ! "); 
+          this.hero.setScore(1000);
           this.curentRoom.adversaire = null ;
         }   
         if (this.hero.etreMort()){ 
