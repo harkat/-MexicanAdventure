@@ -33,7 +33,7 @@ public class Catcheur extends Adversaire
      * @param p le Personnage attaque
      */
     public void attaquer(Personnage p) {
-        double coup = this.getVie() / 2;
+        double coup = 1;
         p.subirFrappe(coup);               
     }
     
@@ -44,7 +44,6 @@ public class Catcheur extends Adversaire
      */
     public void subirFrappe(double coup) {
         this.ajouterVie(-coup);
-        double blessure = this.getVie() / 2;
     }
     
     /**

@@ -23,7 +23,7 @@ public class Monstre extends Adversaire
      * @param p le Personnage attaque
      */
     public void attaquer(Personnage p) {
-        double coup = this.getVie() / 2;
+        double coup = 1.00;
         p.subirFrappe(coup);
     }
 
@@ -34,7 +34,6 @@ public class Monstre extends Adversaire
      */
     public void subirFrappe(double coup) {
         this.ajouterVie(-coup);
-        double blessure = this.getVie() / 2;
     }
     
     /**

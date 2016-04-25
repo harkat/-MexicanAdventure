@@ -8,7 +8,7 @@
  */
 public class Hero implements Personnage
 {
-    
+
     /**
      * attributs de Hero
      */
@@ -27,6 +27,7 @@ public class Hero implements Personnage
         this.nom = n ;
         this.ptVie = 5.00 ;
     }
+
     /**
      * methode getNon qui terourne le nom du personnage
      * @return le nom du Hero
@@ -34,6 +35,7 @@ public class Hero implements Personnage
     public String getNom() {
         return this.nom ;
     }
+
     /**
      * methode getInstrument qui terourne le l'instrument du personnage
      * @return l'instrument du Hero
@@ -41,6 +43,7 @@ public class Hero implements Personnage
     public Instrument getInstrument() {
         return this.instrument ;
     }
+
     /**
      * méthode etreMort qui terourne si le personnage est mort ou pas
      * @return vrai si le Hero est mort
@@ -48,6 +51,7 @@ public class Hero implements Personnage
     public boolean etreMort() {
         return (this.ptVie <= 0 ) ;
     }
+
     /**
      * methode getVie qui terourne les points de vie du personnage
      * @return les points de vie du Hero
@@ -55,6 +59,7 @@ public class Hero implements Personnage
     public double getVie() {
         return this.ptVie ;
     }
+
     /**
      * methode getVie qui terourne les points de vie du personnage
      * @param num les points de vie a ajouter
@@ -63,24 +68,25 @@ public class Hero implements Personnage
         this.ptVie = this.ptVie + num ;
         if (this.ptVie > MAX) this.ptVie = MAX;
     }
+
     /**
      * permet de calculer les points perdus a cause d'une frappe
      * @param coup la force de l'attaque
      * @return un reel
      */
     public void subirFrappe (double coup) {
-        this.ajouterVie (-coup) ;
-        double blessure = this.getVie () / 2 ;        
+        this.ajouterVie (-coup) ;    
     }
+
     /**
      * méthode attaquer quand un monstre attaque un autre personnage
      * @param v le Personnage attaqué
      */
     public void attaquer (Personnage v) {
-        double coup = getVie () / 2 ;
+        double coup =  2.00 ;
         v.subirFrappe (coup) ;        
     }
-    
+
     /**
      * méthode pour savoir si le héro posséde bien les 3 reliques
      * @return true si il possède les 3 reliques
@@ -94,7 +100,31 @@ public class Hero implements Personnage
         }
         return res;
     }
-    
+
+    /**
+     * méthode pour savoir si le héro posséde bien 1 reliques
+     * @return true si il possède les 1 reliques
+     */
+    public boolean possederUneRelique() {
+        boolean res = false;
+        if (prise[1] == null && prise[0] != null) {
+            res = true;
+        }        
+        return res;
+    }
+
+    /**
+     * méthode pour savoir si le héro posséde bien 2 reliques
+     * @return true si il possède les 2 reliques
+     */
+    public boolean possederDeuxRelique() {
+        boolean res = false;        
+        if (prise[2] == null && prise[1] != null ) {
+            res = true;
+        }        
+        return res;
+    }
+
     /**
      * remplit le tableau par des Relique collectee
      * @param rlq la relique collectee
@@ -102,14 +132,14 @@ public class Hero implements Personnage
     public void setPrise(Relique rlq) {
         int i = 0;
         while (i < prise.length && this.prise[i] != null) i++;
-        
+
         if (i < this.prise.length) this.prise[i] = rlq;
     }
-    
+
     private boolean priseEstVide() {
         return (this.prise[0] == null);
     }
-    
+
     private void afficherPrise() {
         int i = 0;
         int val = 0;
@@ -121,7 +151,7 @@ public class Hero implements Personnage
         System.out.println();
         System.out.println("d'une valeur totale de " + val + " €");
     }
-    
+
     /**
      * recuper l'instrument
      * @param instr l'instrument recuperer
@@ -129,20 +159,29 @@ public class Hero implements Personnage
     public void setInstrument(Instrument instr) {
         this.instrument = instr;
     }
-    
+
     public void setScore(int points) {
         this.score = this.score + points;
     }
-    
+
     public void inventaire() {
+        System.out.println("");
         System.out.println("Vous avez : " + this.ptVie + " points de vie");
         System.out.println("Votre score est de : " + this.score);
-        if (!priseEstVide()) {
-            System.out.println("Vous portez le(s) relique(s) suivant(s) :");
-            afficherPrise();
+        if (priseEstVide()) System.out.println("Tu n'as aucune relique");
+        else
+        {
+            System.out.println("Vous portez les reliques suivantes :");
+            afficherPrise();             
+            if (this.possederUneRelique()) System.out.println("Il te manque encore 2 autres reliques.");
+            else if (this.possederDeuxRelique()) System.out.println("Il te manque encore 1 autre relique.");
+            else if (this.possederRelique()) System.out.println("Tu as toutes les reliques");            
         }
-        if (this.instrument != null)
-            System.out.println("et vous avez : " + 
-                this.instrument.getNom() + " comme instrument");
+        if (this.instrument != null){
+
+            System.out.println("Tu as : " + 
+                this.instrument.getNom() + " comme instrument de combat");
+        }
+        else System.out.println("Tu n'as aucune instrument pour les combats");
     }
 }      
