@@ -70,7 +70,7 @@ public class Game
 
         if (this.hero.etreMort()) {
             System.out.println(); 
-            System.out.println("Vous n'avez plus de point de vie, " +
+            System.out.println("Tu n'as plus de point de vie, " +
                 "vous êtes mort !"); 
         }
         System.out.println("Jeu terminé ! Merci d'avoir perdu " +
@@ -85,14 +85,14 @@ public class Game
         Scanner sc = new Scanner(System.in);
         System.out.println();
         System.out.println("Salut " + this.hero.getNom() + ",");
-        System.out.println("Soyez le bienvenue dans les " +
+        System.out.println("Sois le bienvenue dans les " +
             "aventures du Catcheur Mexicain!");
         System.out.println("Les aventures du Catcheur Mexicain " +
             "est un nouveau jeu, ");
         System.out.println("super cool que même " +
             "Ubisoft envie.");
         System.out.println();
-        System.out.print("Appuyez sur n'importe quelle " +
+        System.out.print("appuies sur n'importe quelle " +
             "touche pour commencer..."); 
         sc.nextLine();
         System.out.println();
@@ -108,8 +108,8 @@ public class Game
         boolean wantToQuit = false;
 
         if (command.isUnknown()) {
-            System.out.println("Je ne comprend ce que vous voulez dire ! " +
-                "vous êtes saoul ou quoi ?");
+            System.out.println("Je ne comprend ce que tu veux dire ! " +
+                "T'es saoul ou quoi ?");
             return false;
         }
 
@@ -143,8 +143,8 @@ public class Game
      */
     private void printHelp() 
     {
-        System.out.println("Ne paniquez surtout pas, je suis là pour vous");
-        System.out.println("Vous pouvez taper : ");
+        System.out.println("Ne paniques surtout pas, je suis là pour t'aider");
+        System.out.println("Tu peux taper : ");
         System.out.println("aller [sud, est, ouest, nord]," +
             " quitter, aide, inventaire");
         System.out.println();
@@ -205,7 +205,7 @@ public class Game
                     if (this.hero.possederDeuxRelique()) System.out.println("Mais il te manque encore 1 autre relique.");
                     else System.out.println("Mais tu n'as aucune relique");
                     System.out.println("Reviens plus tard, un fois ques tu as les trois reliques");
-                    System.out.print("Appuyez sur \"ENTER\" pour cotinuer..."); 
+                    System.out.print("appuies sur \"ENTER\" pour cotinuer..."); 
                     sc.nextLine();
                 }  
                 System.out.print("");
@@ -246,7 +246,7 @@ public class Game
     {
         if (command.hasSecondWord()) {
             System.out.println("Quitter quoi au juste? " +
-                "Si vous voulez abandonner, il faut écrire: quitter");
+                "Si tu veux abandonner, il faut écrire: quitter");
             return false;
         }
         else {

@@ -144,12 +144,12 @@ public class Hero implements Personnage
         int i = 0;
         int val = 0;
         while (i < prise.length && this.prise[i] != null) {
-            System.out.print("- " + this.prise[i].getNom() + "  ");
+            System.out.println("- " + this.prise[i].getNom() + "  ");
             val = val + this.prise[i].getValeur();
             i++;
         }
         System.out.println();
-        System.out.println("d'une valeur totale de " + val + " €");
+        System.out.println("  d'une valeur totale de " + val + " €");
     }
 
     /**
@@ -182,6 +182,6 @@ public class Hero implements Personnage
             System.out.println("Tu as : " + 
                 this.instrument.getNom() + " comme instrument de combat");
         }
-        else System.out.println("Tu n'as aucune instrument pour les combats");
+        else System.out.println("Tu n'as aucun instrument pour les combats");
     }
 }      

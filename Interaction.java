@@ -176,7 +176,7 @@ public class Interaction
                 "et aussi, si tu veux que je te dise où se" + 
                 " trouve le catcheur mafieux Satan.\n" +
                 "Il faut que tu sois capable de répondre à une question... ");
-            System.out.print("Appuyer sur \"ENTER\" pour cotinuer..."); 
+            System.out.print("Appuies  sur \"ENTER\" pour cotinuer..."); 
             sc.nextLine();
             System.out.print("Veux-tu répondre à ma question ? " +
                 "(\"oui\" : pour ouais) : ");
@@ -211,8 +211,8 @@ public class Interaction
                     System.out.println("Mauvaise réponse ! Je ne " +
                         "peux rien te dire sur SATAN ! \n" +
                         "À la prochaine fois...") ;  
-                    System.out.println("Vous avez perdu 1 point de vie !" +
-                        " Il vous reste : " + this.hero.getVie() + " ptVie");
+                    System.out.println("Tu as perdu 1 point de vie !" +
+                        " Il te reste : " + this.hero.getVie() + " ptVie");
                 }   
             } 
             else {
@@ -234,7 +234,7 @@ public class Interaction
         System.out.println();
         System.out.print("Super!! la relique ! ");
         System.out.println("C'est : " + this.curentRoom.objet.getNom());
-        System.out.print("Appuyez sur \"ENTER\" pour récupurer la relique"); 
+        System.out.print("appuies  sur \"ENTER\" pour récupurer la relique"); 
         sc.nextLine();
         this.hero.setPrise((Relique)this.curentRoom.objet);
         this.hero.setScore(((Relique)this.curentRoom.objet).getPoints());
@@ -253,7 +253,7 @@ public class Interaction
     {
         System.out.print("Tiens " + this.curentRoom.objet.getNom() + "! ");
         System.out.println("ça peut te donner de l'énérgie.");
-        System.out.print("Appuyez sur \"ENTER\" pour récupurer la nouriture"); 
+        System.out.print("appuies  sur \"ENTER\" pour récupurer la nouriture"); 
         sc.nextLine();
         this.hero.ajouterVie(((Nourriture)this.curentRoom.objet).getEnergie());
         System.out.print("Cool, désormais j'ai : ");
@@ -270,7 +270,7 @@ public class Interaction
         System.out.print("Hum... C'est quoi ça? ");
         System.out.print(this.curentRoom.objet.getNom());
         System.out.println("! ça peut te servir lors des combats!");
-        System.out.print("Appuyez sur \"ENTER\" pour récupurer l'instrument"); 
+        System.out.print("appuies  sur \"ENTER\" pour récupurer l'instrument"); 
         sc.nextLine();
         this.hero.setInstrument((Instrument)this.curentRoom.objet);
         this.hero.setScore(((Instrument)this.curentRoom.objet).getPoints());
@@ -291,7 +291,7 @@ public class Interaction
             "pendant un certain moment, " +
             "tu m'as cherché un peu partout" + "\n" +
             "dans le monde ! Tu es devant moi maintenant... ");
-        System.out.print("Appuyez sur \"ENTER\" pour cotinuer..."); 
+        System.out.print("appuies  sur \"ENTER\" pour cotinuer..."); 
         sc.nextLine();
         System.out.println("Qu'attends tu de moi au juste ?");
         String str1 = sc.nextLine();
@@ -331,21 +331,21 @@ public class Interaction
             else System.out.println("Tu n'as pas d'instrument pour contrer le monstre"); 
 
             while (!monstre.etreMort() && !this.hero.etreMort()){
-                System.out.println("Appuyer sur \"ENTER\" pour attaquer le monstre"); 
+                System.out.println("Appuies  sur \"ENTER\" pour attaquer le monstre"); 
                 sc.nextLine();
                 System.out.println("Prend ça "+ monstre.getNom()+"\n"+monstre.getNom()+" : OUCH !");
-                monstre.subirFrappe(2.00);
+                this.hero.attaquer(monstre);
                 System.out.println("  -Ptvie "+ monstre.getNom()+" après l'attaque : "+
                     monstre.getVie() ) ;
                 if (monstre.getVie()<1) {
                     System.out.println("Bravo! Le monstre est mort");
-                    System.out.println("Appuyer sur \"ENTER\" pour cotinuer..."); 
+                    System.out.println("Appuies  sur \"ENTER\" pour cotinuer..."); 
                     sc.nextLine();
                     break ;
                 }
-                System.out.println("Appuyer sur \"ENTER\" pour cotinuer le combat"); 
+                System.out.println("Appuies  sur \"ENTER\" pour cotinuer le combat"); 
                 sc.nextLine();
-                this.hero.subirFrappe(1.00);
+                this.hero.attaquer(this.hero);
                 System.out.println("Tu viens de te faire attaquer par le monstre");
                 System.out.println("Il te reste : "+
                     this.hero.getVie()+" points de vie" ) ;
@@ -376,7 +376,7 @@ public class Interaction
         String str = "";
         if (catcheur.getNom().equals("Satan"))
         {
-            System.out.println("Appuyer sur \"ENTER\" pour combattre Satan");                     
+            System.out.println("appuies sur \"ENTER\" pour combattre Satan");                     
             sc.nextLine(); 
             str = "oui" ;
         }
@@ -407,7 +407,7 @@ public class Interaction
             else System.out.println("Tu n'as pas d'instrument pour contrer le catcheur"); 
 
             while (!catcheur.etreMort() && !this.hero.etreMort()){
-                System.out.println("Appuyer sur \"ENTER\" pour attaquer le catcheur"); 
+                System.out.println("Appuies  sur \"ENTER\" pour attaquer le catcheur"); 
                 sc.nextLine();
                 System.out.println("Prend ça "+ catcheur.getNom()+"\n"+catcheur.getNom()+" : YOHOO !");
                 catcheur.subirFrappe(2.00);
@@ -415,11 +415,11 @@ public class Interaction
                     catcheur.getVie() ) ;
                 if (catcheur.getVie()<1) {
                     System.out.println("Bravo! Le catcheur est batu");
-                    System.out.println("Appuyer sur \"ENTER\" pour cotinuer...");                     
+                    System.out.println("Appuies  sur \"ENTER\" pour cotinuer...");                     
                     sc.nextLine();
                     break ;
                 }
-                System.out.println("Appuyer sur \"ENTER\" pour cotinuer le combat"); 
+                System.out.println("Appuies  sur \"ENTER\" pour cotinuer le combat"); 
                 sc.nextLine();
                 this.hero.subirFrappe(1.00);
                 System.out.println("Tu viens de te faire attaquer par le catcheur");
