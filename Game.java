@@ -41,8 +41,10 @@ public class Game
         String str = sc.nextLine();
         if (str.trim().equals("")) str = "Espace_Hero" ;
         this.hero = new Hero (str) ;
+        Affichage affiche = new Affichage(this.carte);
         
-        printWelcome();        
+        printWelcome();
+        affiche.afficherCarte();
         Interaction action = new Interaction(carte.currentRoom, this.hero) ;
         action.interactionMaker();
         afficherCourant();

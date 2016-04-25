@@ -18,19 +18,19 @@ public class Nourriture extends Objet
     public Nourriture() {
         super();
         switch(this.nom) {
-            case "taco" :
+            case "un tacos" :
                 this.energie = 10;
                 break;
-            case "soushi" :
+            case "un soushi" :
                 this.energie = 6;
                 break;
-            case "kebab" :
+            case "un kebab" :
                 this.energie = 8;
                 break;
-            case "hamburger" :
+            case "un hamburger" :
                 this.energie = 7;
                 break;
-            case "hot-dog" :
+            case "un hot-dog" :
                 this.energie = 5;
                 break;  
         }

@@ -18,25 +18,25 @@ public class Relique extends Objet
     public Relique() {
         super();        
         switch(this.nom) {
-            case "medaillon" :
+            case "le medaillon ancestral" :
                 this.valeur = 1000;
                 break;
-            case "croix" :
+            case "la croix rouillé" :
                 this.valeur = 400;
                 break;
-            case "sceptre" :
+            case "le sceptre sacré" :
                 this.valeur = 1500;
                 break;
-            case "montre" :
+            case "la montre temporelle" :
                 this.valeur = 800;
                 break;
-            case "bague" :
+            case "la bague magique" :
                 this.valeur = 1200;
                 break; 
-            case "coffret" :
+            case "le coffret de pandore" :
                 this.valeur = 1100;
                 break; 
-            case "livre" :
+            case "le livre de magie" :
                 this.valeur = 1300;
                 break; 
         }

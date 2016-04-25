@@ -118,7 +118,8 @@ public class Hero implements Personnage
             val = val + this.prise[i].getValeur();
             i++;
         }
-        System.out.println(", d'une valeur totale de " + val + " €");
+        System.out.println();
+        System.out.println("d'une valeur totale de " + val + " €");
     }
     
     /**

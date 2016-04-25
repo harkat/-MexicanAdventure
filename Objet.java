@@ -42,7 +42,7 @@ public abstract class Objet
                     points = 1000;
                     break;
                 case 2 :
-                    nom    = "la croix rouillé ";
+                    nom    = "la croix rouillé";
                     points = 400;
                     break;
                 case 3 :

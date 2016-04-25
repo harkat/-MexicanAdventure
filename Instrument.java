@@ -17,19 +17,19 @@ public class Instrument extends Objet
     public Instrument() {
         super();
         switch(this.nom) {
-            case "guitar" :
+            case "une guitar" :
                 this.degat = 4;
                 break;
-            case "fouet" :
+            case "un fouet" :
                 this.degat = 2;
                 break;
-            case "sombrero" :
+            case "un sombrero" :
                 this.degat = 1;
                 break;
-            case "poison" :
+            case "un poison" :
                 this.degat = 2;
                 break;
-            case "couteau" :
+            case "un couteau" :
                 this.degat = 3;
                 break;  
         }
