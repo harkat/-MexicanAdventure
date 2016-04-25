@@ -48,6 +48,10 @@ public class Room
      */
     public Adversaire adversaire;
     /**
+     * visibilite de la Room
+     */
+    public boolean visible;
+    /**
      * Create a room described "description". Initially, it has
      * no exits. "description" is something like "a kitchen" or
      * "an open court yard".

@@ -166,8 +166,8 @@ public class Hero implements Personnage
 
     public void inventaire() {
         System.out.println("");
-        System.out.println("Vous avez : " + this.ptVie + " points de vie");
-        System.out.println("Votre score est de : " + this.score);
+        System.out.println("Tu as : " + this.ptVie + " points de vie");
+        System.out.println("Ton score est de : " + this.score);
         if (priseEstVide()) System.out.println("Tu n'as aucune relique");
         else
         {
