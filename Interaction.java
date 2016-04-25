@@ -366,7 +366,7 @@ public class Interaction
             if (str.equals("oui")) {
                 monstre.subirFrappe(monstre.getVie()/2);
                 System.out.println("Grâçe à ton "+instru.getNom()+" le monstre "+monstre.getNom()+
-                " a perdu la moitier de ses points de vie,");
+                " a perdu la moitier\nde ses points de vie,");
                 System.out.println("  -Points de vie du monstre après l'utilisation de l'istrument : "+
                 monstre.getVie() ) ;
             }
@@ -423,7 +423,7 @@ public class Interaction
             if (str.equals("oui")) {
                 catcheur.subirFrappe(catcheur.getVie()/2);
                 System.out.println("Grâçe à ton "+instru.getNom()+" le catcheur "+catcheur.getNom()+
-                "a perdu la moitier de ses points de vie,");
+                "a perdu la moitier\nde ses points de vie,");
                 System.out.println("Points de vie du catcheur après l'utilisation de l'istrument : "+
                 catcheur.getVie() ) ;
             }

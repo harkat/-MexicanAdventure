@@ -33,7 +33,7 @@ public abstract class Objet
      */
     private void genererObjet() {
         int tag = RAND.nextInt(7) + 1;
-        int tagNI = RAND.nextInt(5) + 1;
+        int tagI = RAND.nextInt(5) + 1;
         
         if (this instanceof Relique) {
             switch(tag) {
@@ -69,7 +69,7 @@ public abstract class Objet
         }
         else if (this instanceof Nourriture) {
             points = 0;
-            switch(tagNI) {
+            switch(tag) {
                 case 1 :
                     nom = "un tacos";
                     break;
@@ -85,10 +85,16 @@ public abstract class Objet
                 case 5 :
                     nom = "un hot-dog";
                     break;
+                case 6 :
+                    nom = "un panini";
+                    break;
+                case 7 :
+                    nom = "une pizza";
+                    break;
             }
         }
         else if (this instanceof Instrument) {
-            switch(tagNI) {
+            switch(tagI) {
                 case 1 :
                     nom    = "une guitar";
                     points = 90;

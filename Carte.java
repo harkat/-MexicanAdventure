@@ -111,39 +111,54 @@ public class Carte
         //mettre des objets
         Objet obj1 = new Instrument();
         Objet obj2 = new Nourriture();
-        Objet obj3 = new Relique();
-        Objet obj4 = new Relique();
+        Objet obj3 = new Nourriture();
+        while (obj3.equals(obj2)) obj3 = new Nourriture();
+        Objet obj4 = new Nourriture();
+        while (obj4.equals(obj2) || obj4.equals(obj3))
+            obj4 = new Nourriture();
         Objet obj5 = new Relique();
+        Objet obj6 = new Relique();
+        while (obj6.equals(obj5)) obj6 = new Relique();
+        Objet obj7 = new Relique();
+        while (obj7.equals(obj5) || obj7.equals(obj6))
+            obj7 = new Relique();
+        
+        Adversaire adv1 = new Monstre(7);
+        Adversaire adv2 = new Monstre(6);
+        while (adv2.equals(adv1)) adv2 = new Monstre(6);
+        Adversaire adv3 = new Catcheur(10);
+        Adversaire adv4 = new Catcheur("Satan", 10);
         
         Room temp1 = carte.get(objClef[0]);        
         Room temp2 = carte.get(objClef[1]);
         Room temp3 = carte.get(objClef[2]);
         Room temp4 = carte.get(objClef[3]);
         Room temp5 = carte.get(objClef[4]);
+        Room temp6 = carte.get(objClef[5]);
+        Room temp7 = carte.get(objClef[6]);
+        Room temp8 = carte.get(11);
+        
         temp1.setObjet(obj1);
         temp2.setObjet(obj2);
         temp3.setObjet(obj3);
         temp4.setObjet(obj4);
         temp5.setObjet(obj5);
+        temp6.setObjet(obj6);
+        temp7.setObjet(obj7);
+        
+        temp5.setAdversaire(adv1);
+        temp6.setAdversaire(adv2);
+        temp7.setAdversaire(adv3);
+        temp8.setAdversaire(adv4);
         
         carte.put(objClef[0], temp1);
         carte.put(objClef[1], temp2);
         carte.put(objClef[2], temp3);
         carte.put(objClef[3], temp4);
         carte.put(objClef[4], temp5);
-        
-        int advClef = RAND.nextInt(10) + 1;
-        
-        Adversaire adv1 = new Monstre(10);
-        Adversaire adv2 = new Catcheur(10);
-        
-        Room temp6 = carte.get(advClef);
-        Room temp7 = carte.get(11);
-        temp6.setAdversaire(adv1);
-        temp7.setAdversaire(adv2);
-        
-        carte.put(advClef, temp6);
-        carte.put(11, temp7);
+        carte.put(objClef[5], temp6);
+        carte.put(objClef[6], temp7);
+        carte.put(11, temp8);
         
         int currInit = RAND.nextInt(10) + 1;
         currentRoom = carte.get(currInit);
@@ -154,7 +169,7 @@ public class Carte
      * @return tableau de 5 entiers
      */
     private int[] randomiser() {
-        int[] rdm = new int[5];
+        int[] rdm = new int[7];
         int clef1 = RAND.nextInt(10) + 1;
         int clef2 = RAND.nextInt(10) + 1;
         while (clef2 == clef1) 
@@ -169,11 +184,22 @@ public class Carte
         while ((clef5 == clef1) || (clef5 == clef2) || 
             (clef5 == clef3) || (clef5 == clef4)) 
             clef5 = RAND.nextInt(10) + 1;
+        int clef6 = RAND.nextInt(10) + 1;
+        while ((clef6 == clef1) || (clef6 == clef2) || 
+            (clef6 == clef3) || (clef6 == clef4) || (clef6 == clef5)) 
+            clef6 = RAND.nextInt(10) + 1;
+        int clef7 = RAND.nextInt(10) + 1;
+        while ((clef7 == clef1) || (clef7 == clef2) || 
+            (clef7 == clef3) || (clef7 == clef4) ||
+            (clef7 == clef5) || (clef7 == clef6)) 
+            clef7 = RAND.nextInt(10) + 1;
         rdm[0] = clef1;
         rdm[1] = clef2;
         rdm[2] = clef3;
         rdm[3] = clef4;
         rdm[4] = clef5;
+        rdm[5] = clef6;
+        rdm[6] = clef7;
         return rdm;
     }
     

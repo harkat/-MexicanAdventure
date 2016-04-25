@@ -16,6 +16,15 @@ public class Catcheur extends Adversaire
     {
         super(p);
     }
+    
+    /**
+     * constructeur herite celui de la classe Adversaire
+     * @param p points de vie du Monstre cree
+     */
+    public Catcheur(String nom, double p)
+    {
+        super(nom, p);
+    }
 
     /**
      * permet de mettre a jour les points

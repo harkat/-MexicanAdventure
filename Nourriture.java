@@ -31,8 +31,14 @@ public class Nourriture extends Objet
                 this.energie = 7;
                 break;
             case "un hot-dog" :
+                this.energie = 4;
+                break;
+            case "un panini" :
                 this.energie = 5;
-                break;  
+                break;
+            case "une pizza" :
+                this.energie = 9;
+                break;
         }
     }
     

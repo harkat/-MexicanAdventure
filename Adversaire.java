@@ -31,6 +31,14 @@ public abstract class Adversaire implements Personnage
         this.nom = genererNom();
     }
     /**
+     * constructeur initialise avec les parametres
+     * @param pv points de vie du Personnage cree
+     */
+    public Adversaire(String nom, double pv) {
+        this.ptsVie = pv;
+        this.nom = nom;
+    }
+    /**
      * methode getNom qui retourne le nom de l'adversaier
      * @return le nom de l'adversaier
      */

@@ -14,7 +14,7 @@ public class Hero implements Personnage
      */
     private String nom;
     private double ptVie;
-    private static final double MAX = 15;
+    private static final double MAX = 20;
     private int score;
     private Relique[] prise = new Relique[3];
     private Instrument instrument;

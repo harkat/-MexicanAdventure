@@ -100,14 +100,15 @@ public class Affichage extends JPanel
 	}
 	
 	public void afficherCarte() {
-	    JFrame fenetre = new JFrame("Affichage de carte");
+	    JFrame fenetre = new JFrame("Affichage de la carte");
 	    fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    Affichage dessin = new Affichage(this.carte);
 	    dessin.setPreferredSize(new Dimension(500,500));
 	    fenetre.setContentPane(dessin);
 	    fenetre.pack();
-	    dessin.requestFocusInWindow();
+	    fenetre.setFocusableWindowState(false);
 	    fenetre.setVisible(true);
+	    fenetre.setAlwaysOnTop(true);
 	}
 
 }
