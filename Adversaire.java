@@ -30,7 +30,13 @@ public abstract class Adversaire implements Personnage
         this.ptsVie = pv;
         this.nom = genererNom();
     }
-    
+    /**
+     * methode getNom qui retourne le nom de l'adversaier
+     * @return le nom de l'adversaier
+     */
+    public String getNom() {
+        return this.nom ;
+    }
     /**
      * methode genere le nom d'un Adversaire
      * @return nom le nom de l'objet
@@ -42,38 +48,38 @@ public abstract class Adversaire implements Personnage
         if (this instanceof Catcheur) {
             switch(tag) {
                 case 1 :
-                    nom = "L'ourse";
+                    nm = "L'ourse";
                     break;
                 case 2 :
-                    nom = "Le parfeu";
+                    nm = "Le parfeu";
                     break;
                 case 3 :
-                    nom = "L'araignee";
+                    nm = "L'araignee";
                     break;
                 case 4 :
-                    nom = "Le tigre";
+                    nm = "Le tigre";
                     break;
                 case 5 :
-                    nom = "Le bourreau";
+                    nm = "Le bourreau";
                     break;  
             }
         }
         else if (this instanceof Monstre) {
             switch(tag) {
                 case 1 :
-                    nom = "Dark vador";
+                    nm = "Dark vador";
                     break;
                 case 2 :
-                    nom = "Hulk";
+                    nm = "Hulk";
                     break;
                 case 3 :
-                    nom = "Goro";
+                    nm = "Goro";
                     break;
                 case 4 :
-                    nom = "Doubleface";
+                    nm = "Doubleface";
                     break;
                 case 5 :
-                    nom = "Le fou";
+                    nm = "Le fou";
                     break;
             }
         }

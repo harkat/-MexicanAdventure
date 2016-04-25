@@ -35,6 +35,13 @@ public class Hero implements Personnage
         return this.nom ;
     }
     /**
+     * methode getInstrument qui terourne le l'instrument du personnage
+     * @return l'instrument du Hero
+     */
+    public Instrument getInstrument() {
+        return this.instrument ;
+    }
+    /**
      * méthode etreMort qui terourne si le personnage est mort ou pas
      * @return vrai si le Hero est mort
      */
@@ -61,10 +68,9 @@ public class Hero implements Personnage
      * @param coup la force de l'attaque
      * @return un reel
      */
-    public double subirFrappe (double coup) {
+    public void subirFrappe (double coup) {
         this.ajouterVie (-coup) ;
-        double blessure = this.getVie () / 2 ;
-        return blessure ;
+        double blessure = this.getVie () / 2 ;        
     }
     /**
      * méthode attaquer quand un monstre attaque un autre personnage
@@ -72,8 +78,7 @@ public class Hero implements Personnage
      */
     public void attaquer (Personnage v) {
         double coup = getVie () / 2 ;
-        double blessure = v.subirFrappe (coup) ;
-        this.ajouterVie (-blessure) ;
+        v.subirFrappe (coup) ;        
     }
     
     /**

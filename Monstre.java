@@ -24,8 +24,7 @@ public class Monstre extends Adversaire
      */
     public void attaquer(Personnage p) {
         double coup = this.getVie() / 2;
-        double blessure = p.subirFrappe(coup);
-        this.ajouterVie(-blessure);
+        p.subirFrappe(coup);
     }
 
     /**
@@ -33,10 +32,9 @@ public class Monstre extends Adversaire
      * @param coup la force de l'attaque
      * @return un reel
      */
-    public double subirFrappe(double coup) {
+    public void subirFrappe(double coup) {
         this.ajouterVie(-coup);
         double blessure = this.getVie() / 2;
-        return blessure;
     }
     
     /**
@@ -45,6 +43,13 @@ public class Monstre extends Adversaire
      */
     public double getVie() {
         return this.ptsVie;
+    }
+     /**
+     * méthode etreMort qui terourne si le personnage est mort ou pas
+     * @return vrai si le Hero est mort
+     */
+    public boolean etreMort() {
+        return (this.ptsVie <= 0 ) ;
     }
     
     /**

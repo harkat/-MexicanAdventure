@@ -25,8 +25,7 @@ public class Catcheur extends Adversaire
      */
     public void attaquer(Personnage p) {
         double coup = this.getVie() / 2;
-        double blessure = p.subirFrappe(coup);
-        this.ajouterVie(-blessure);
+        p.subirFrappe(coup);               
     }
     
     /**
@@ -34,10 +33,17 @@ public class Catcheur extends Adversaire
      * @param coup la force de l'attaque
      * @return un reel
      */
-    public double subirFrappe(double coup) {
+    public void subirFrappe(double coup) {
         this.ajouterVie(-coup);
         double blessure = this.getVie() / 2;
-        return blessure;
+    }
+    
+    /**
+     * méthode etreMort qui retourne si le catcheur est mort ou pas
+     * @return vrai si le Hero est mort
+     */
+    public boolean etreMort() {
+        return (this.ptsVie <= 0 ) ;
     }
     
     /**

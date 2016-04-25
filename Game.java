@@ -39,55 +39,35 @@ public class Game
         System.out.print("Donnez un nom à votre Hero : "); 
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();
+        if (str.trim().equals("")) str = "Espace_Hero" ;
         this.hero = new Hero (str) ;
-        printWelcome();
         
-        DialogueRoom diag = new DialogueRoom(carte.currentRoom, this.hero,
-            carte.currentRoom.objet) ;
-        diag.dialogueMaker();
+        printWelcome();        
+        Interaction action = new Interaction(carte.currentRoom, this.hero) ;
+        action.interactionMaker();
         afficherCourant();
         boolean finished = false;
-        while (!finished && !this.hero.etreMort() ) {
-            Command command = parser.getCommand();
-            if (command.getSecondWord() != null) {
-                String direction = command.getSecondWord();
-                Room nextRoom = carte.currentRoom.nextRoom(direction);
-                if (nextRoom != null) {
-                    diag = new DialogueRoom(nextRoom, this.hero,
-                        carte.currentRoom.objet) ;
-                    diag.dialogueMaker();
-                    Objet obj = nextRoom.objet;
-                    if ((obj != null) && (obj instanceof Relique)) {
-                        System.out.print("Super!! je viens de ");
-                        System.out.println("trouver ça : " + obj.getNom());
-                        this.hero.setPrise((Relique)obj);
-                        this.hero.setScore(((Relique)obj).getPoints());
-                        this.carte.currentRoom.nextRoom(direction).objet = null;
-                    }
-                    
-                    if ((obj != null) && (obj instanceof Nourriture)) {
-                        System.out.print("Tiens un " + obj.getNom() + "! ");
-                        System.out.println("ça me donne de l'énérgie.");
-                        this.hero.ajouterVie(((Nourriture)obj).getEnergie());
-                        System.out.print("désormais j'ais : ");
-                        System.out.println(hero.getVie() + " points de vie");
-                        this.carte.currentRoom.nextRoom(direction).objet = null;
-                        System.out.println();
-                    }
-                    
-                    if ((obj != null) && (obj instanceof Instrument)) {
-                        System.out.print("Voyons c'est quoi ça? ");
-                        System.out.print(obj.getNom());
-                        System.out.println(", ça peut servir");
-                        this.hero.setInstrument((Instrument)obj);
-                        this.hero.setScore(((Instrument)obj).getPoints());
-                        this.carte.currentRoom.nextRoom(direction).objet = null;
-                        System.out.println();
+        while (!finished && !this.hero.etreMort() ) {            
+            
+                Command command = parser.getCommand();
+                if (command.getSecondWord() != null) {
+                    String direction = command.getSecondWord();
+                    Room nextRoom = carte.currentRoom.nextRoom(direction);
+                    if (nextRoom != null) {
+                        if (nextRoom.getDescription().equals(
+                            "à l'arène finale de combat de Satan")&&(!this.hero.possederRelique())) {
+                            System.out.println("");                            
+                        }
+                        else
+                        {
+                            action = new Interaction(nextRoom, this.hero) ;
+                            action.interactionMaker();  
+                        }
                     }
                 }
-            }
-            finished = processCommand(command);
-        }   
+                finished = processCommand(command);            
+        }
+         
         if (this.hero.etreMort()) {
             System.out.println(); 
             System.out.println("Vous n'avez plus de point de vie, " +

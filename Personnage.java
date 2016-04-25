@@ -11,7 +11,7 @@ public interface Personnage {
      * @param coup la force de l'attaque
      * @return les points perdu
      */
-    public double subirFrappe (double coup) ;
+    public void subirFrappe (double coup) ;
     
     /**
     * permet de mettre a jour les points

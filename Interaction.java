@@ -5,25 +5,37 @@ import java.util.Scanner;
  * @author Amir (edit Jerry)
  * @version 1.0
  */
-public class DialogueObjet extends Dialogue 
+public class Interaction
 {
     /**
-     * Constructeur DialogueObjet
-     * @param rm Room concernee par le dialogue
-     * @param pr Hero concerne par le dialogue
-     * @param obj Objet concerne par le dialogue
+     * Room courante concernee par le dialogue
      */
-    public DialogueObjet(Room rm, Hero pr, Objet obj) {
-       super (rm, pr, obj);
-    }  
-   
+    private Room curentRoom;
     /**
+     * Hero courant (joueur)
+     */    
+    private Hero hero ;
+    
+    private static Scanner sc = new Scanner(System.in); 
+    /**
+     * Constructeur d'objet Dialogue
+     * @param rm la Room concernée par le dialogue
+     * @param pr le Hero concerné par le dialogue
+     * @param obj l'Objet concerné par le dialogue
+     */
+    public Interaction (Room rm, Hero pr)
+    {
+        this.curentRoom = rm ; 
+        this.hero = pr ;        
+    }
+    
+  /**
      * selecteur de dialogue
      */
-    public void dialogueMaker()
-    {
-        String [] content = null ;
-
+    public void interactionMaker()
+    {       
+        String [] content = null ;  
+                
         switch (this.curentRoom.getDescription()) {
             case ("au cirque") :
                 content = this.circusTalk() ;
@@ -72,7 +84,6 @@ public class DialogueObjet extends Dialogue
         }
         
         else {
-            Scanner sc = new Scanner(System.in);
             System.out.println(); 
             System.out.println("Salut " + this.hero.getNom() +
                 "," + "\n" + "Bienvenue " + content[0] + "\n" +
@@ -116,6 +127,16 @@ public class DialogueObjet extends Dialogue
             }           
             System.out.println();   
         }
+        
+        if ((this.curentRoom.objet != null) && (this.curentRoom.objet instanceof Relique)) this.reliqueTalk();
+        
+        if ((this.curentRoom.objet != null) && (this.curentRoom.objet instanceof Nourriture)) this.eatTalk() ;
+        
+        if ((this.curentRoom.objet != null) && (this.curentRoom.objet instanceof Instrument)) this.instrumentTalk() ;
+        
+        if ((this.curentRoom.adversaire != null) && (this.curentRoom.adversaire instanceof Monstre))this.monsterTalk () ;
+        
+        if ((this.curentRoom.adversaire != null) && (this.curentRoom.adversaire instanceof Catcheur))this.catcheurTalk () ;
     }
 
     /**
@@ -255,17 +276,54 @@ public class DialogueObjet extends Dialogue
             "2"} ;
         return str ;        
     }
+    
+     /**
+     *  methode dialogue pour les rellique
+     */
+    public void reliqueTalk ()
+    {
+        System.out.print("Super!! je viens de ");
+        System.out.println("trouver ça : " + this.curentRoom.objet.getNom());
+        this.hero.setPrise((Relique)this.curentRoom.objet);
+        this.hero.setScore(((Relique)this.curentRoom.objet).getPoints());
+        this.curentRoom.objet = null;
+        System.out.println();
+    }
+    
+    /**
+     *  methode dialogue pour la nouriture
+     */
+    public void eatTalk ()
+    {
+        System.out.print("Tiens un " + this.curentRoom.objet.getNom() + "! ");
+        System.out.println("ça me donne de l'énérgie.");
+        this.hero.ajouterVie(((Nourriture)this.curentRoom.objet).getEnergie());
+        System.out.print("désormais j'ai : ");
+        System.out.println(hero.getVie() + " points de vie");
+        this.curentRoom.objet = null;
+        System.out.println();
+    }
+    /**
+     *  methode dialogue pour les instruments
+     */
+    public void instrumentTalk ()
+    {
+        System.out.print("Voyons c'est quoi ça? ");
+        System.out.print(this.curentRoom.objet.getNom());
+        System.out.println(", ça peut servir");
+        this.hero.setInstrument((Instrument)this.curentRoom.objet);
+        this.hero.setScore(((Instrument)this.curentRoom.objet).getPoints());
+        this.curentRoom.objet = null;
+        System.out.println();
+    }
 
     /**
      *  methode dialogue pour le final
      */
     public void finalTalk () 
     {   
-
-        Scanner sc = new Scanner(System.in);
-        System.out.println(); 
-        System.out.println("**************************************************"
-            + "\n" +
+        System.out.println(       
+            "\n" +
             "Enfin tu m'as retrouvé petit catcheur mexicain ! " +
             "J'ai entendu dire que" + "\n" +
             "que pendant un certain moment, " +
@@ -276,31 +334,121 @@ public class DialogueObjet extends Dialogue
         System.out.println("Qu'attends tu de moi au juste ?");
         String str1 = sc.nextLine();
         System.out.println(str1 + " !! OK, si tu veux cela, " + 
-            "il faut répondre à mon énigme !");
-
+            "il faut m'affronter en combat final!");
         System.out.print("Appuyer sur \"ENTER\" pour cotinuer..."); 
-        sc.nextLine();
-
-        System.out.print("Veux-tu répondre à ma question ? " 
-            + "(\"oui\" : pour ouais) ");
-        String str = sc.nextLine();
-        if (str.equals("oui")) {
-            System.out.println ("dis moi: "); 
-            System.out.print("Cette personne est punis " +
-                "quand elle fait une tentative de crime, " + "\n" +
-                "mais elle ne l'est pas si elle le commet ? : ");
-            String str2 = sc.nextLine();
-            if (str2.contains("kamikaze")) {
-                System.out.println("Tu as gagné ! Je me remet à toi !" +
-                    " Tu peux faire ce que tu veux de moi");
+        sc.nextLine();        
+    }
+    
+    /**
+     *  methode dialogue pour les monstre
+     */
+    public void monsterTalk () 
+    {
+        Monstre monstre = (Monstre)this.curentRoom.adversaire ;
+        Objet instru = (Objet)this.hero.getInstrument();
+        System.out.println("Pas de chance pour toi mon petit catcheur! ");
+        System.out.println("tu vas te faire dévorer par  le monstre : " + monstre.getNom());
+        
+        if (this.hero.getInstrument() != null ){
+            System.out.println("T'as l'instrument  : " + instru.getNom());
+            System.out.print("Veux-tu l'utiliser pour combatre le monstre ? " +
+            "(\"oui\" : pour ouais) : ");
+            String str = sc.nextLine();
+            if (str.equals("oui")) {
+                monstre.subirFrappe(monstre.getVie()/2);
+                System.out.println("Grâçe à ton "+instru.getNom()+" le monstre "+monstre.getNom()+
+                " a perdu la moitier de ses points de vie,");
+                System.out.println("  -Points de vie du monstre après l'utilisation de l'istrument : "+
+                monstre.getVie() ) ;
             }
-            else {
-                System.out.println("Non, ce n'est pas ça ! " +
-                    "Il va falloir m'affronter dans une version " +
-                    "améliorée de ce jeu !");
+        }            
+        else System.out.println("Tu n'as pas d'instrument pour contrer le monstre"); 
+        
+        while (!monstre.etreMort() && !this.hero.etreMort()){
+            System.out.println("Appuyer sur \"ENTER\" pour attaquer le monstre"); 
+            sc.nextLine();
+            System.out.println("Prend ça "+ monstre.getNom()+"\n"+monstre.getNom()+" : OUCH !");
+            monstre.subirFrappe(2.00);
+            System.out.println("  -Ptvie "+ monstre.getNom()+" après l'attaque : "+
+            monstre.getVie() ) ;
+            if (monstre.getVie()<1) {
+                System.out.println("Bravo! Le monstre est mort");
+                System.out.println("Appuyer sur \"ENTER\" pour cotinuer..."); 
+                sc.nextLine();
+                break ;
             }
-        } 
-        System.out.println("*************************************************");
-
+            System.out.println("Appuyer sur \"ENTER\" pour cotinuer le combat"); 
+            sc.nextLine();
+            this.hero.subirFrappe(1.00);
+            System.out.println("Tu viens de te faire attaquer par le monstre");
+            System.out.println("Il te reste : "+
+            this.hero.getVie()+" points de vie" ) ;
+        }
+        
+        if (monstre.etreMort()) {
+          System.out.println("Ouf ! c'était chaud ! "); 
+          this.curentRoom.adversaire = null ;
+        }   
+        if (this.hero.etreMort()){ 
+            System.out.println(monstre.getNom()+ 
+                   " : je t'ai bien dit que t'allais te faire dévorer petit catcheur"); 
+        }
+        System.out.println();        
+    }
+    
+    /**
+     *  methode dialogue pour les monstre
+     */
+    public void catcheurTalk () 
+    {
+        Catcheur catcheur = (Catcheur)this.curentRoom.adversaire ;
+        Objet instru = (Objet)this.hero.getInstrument();
+        System.out.println("tu t'es fait défié par le catcheur : " + catcheur.getNom());
+        System.out.println("Faut le combattre");         
+        if (this.hero.getInstrument() != null ){
+            System.out.println("T'as l'instrument  : " + instru.getNom());
+            System.out.println("Veux-tu l'utiliser pour combatre le Catcheur ? " +
+            "(\"oui\" : pour ouais) : ");
+            String str = sc.nextLine();
+            if (str.equals("oui")) {
+                catcheur.subirFrappe(catcheur.getVie()/2);
+                System.out.println("Grâçe à ton "+instru.getNom()+" le catcheur "+catcheur.getNom()+
+                "a perdu la moitier de ses points de vie,");
+                System.out.println("Points de vie du catcheur après l'utilisation de l'istrument : "+
+                catcheur.getVie() ) ;
+            }
+        }            
+        else System.out.println("Tu n'as pas d'instrument pour contrer le catcheur"); 
+        
+        while (!catcheur.etreMort() && !this.hero.etreMort()){
+            System.out.println("Appuyer sur \"ENTER\" pour attaquer le catcheur"); 
+            sc.nextLine();
+            System.out.println("Prend ça "+ catcheur.getNom()+"\n"+catcheur.getNom()+" : YOHOO !");
+            catcheur.subirFrappe(2.00);
+            System.out.println("---Ptvie "+ catcheur.getNom()+" après l'attaque : "+
+            catcheur.getVie() ) ;
+            if (catcheur.getVie()<1) {
+                System.out.println("Bravo! Le catcheur est batu");
+                System.out.println("Appuyer sur \"ENTER\" pour cotinuer..."); 
+                sc.nextLine();
+                break ;
+            }
+            System.out.println("Appuyer sur \"ENTER\" pour cotinuer le combat"); 
+            sc.nextLine();
+            this.hero.subirFrappe(1.00);
+            System.out.println("Tu viens de te faire attaquer par le catcheur");
+            System.out.println("Il te reste : "+
+            this.hero.getVie()+" points de vie" ) ;
+        }
+        
+        if (catcheur.etreMort()) {
+          System.out.println("Ouf ! c'était chaud ! "); 
+          this.curentRoom.adversaire = null ;
+        }   
+        if (this.hero.etreMort()){ 
+            System.out.println(catcheur.getNom()+ 
+                   " : je t'ai bien dit que t'allais te faire démolir petit catcheur"); 
+        }
+        System.out.println();        
     }
 }

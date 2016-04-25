@@ -134,8 +134,8 @@ public class Carte
         
         int advClef = RAND.nextInt(10) + 1;
         
-        Adversaire adv1 = new Monstre(100);
-        Adversaire adv2 = new Catcheur(100);
+        Adversaire adv1 = new Monstre(10);
+        Adversaire adv2 = new Catcheur(10);
         
         Room temp6 = carte.get(advClef);
         Room temp7 = carte.get(11);
