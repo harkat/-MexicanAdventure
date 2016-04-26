@@ -19,25 +19,25 @@ public class Nourriture extends Objet
         super();
         switch(this.nom) {
             case "un tacos" :
-                this.energie = 10;
-                break;
-            case "un soushi" :
                 this.energie = 6;
                 break;
+            case "un soushi" :
+                this.energie = 4;
+                break;
             case "un kebab" :
-                this.energie = 8;
+                this.energie = 5;
                 break;
             case "un hamburger" :
-                this.energie = 7;
+                this.energie = 4;
                 break;
             case "un hot-dog" :
-                this.energie = 4;
+                this.energie = 3;
                 break;
             case "un panini" :
                 this.energie = 5;
                 break;
             case "une pizza" :
-                this.energie = 9;
+                this.energie = 4;
                 break;
         }
     }

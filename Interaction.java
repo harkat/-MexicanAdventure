@@ -345,7 +345,7 @@ public class Interaction
                 }
                 System.out.println("Appuies  sur \"ENTER\" pour cotinuer le combat"); 
                 sc.nextLine();
-                this.hero.attaquer(this.hero);
+                monstre.attaquer(this.hero);
                 System.out.println("Tu viens de te faire attaquer par le monstre");
                 System.out.println("Il te reste : "+
                     this.hero.getVie()+" points de vie" ) ;
@@ -410,7 +410,7 @@ public class Interaction
                 System.out.println("Appuies  sur \"ENTER\" pour attaquer le catcheur"); 
                 sc.nextLine();
                 System.out.println("Prend ça "+ catcheur.getNom()+"\n"+catcheur.getNom()+" : YOHOO !");
-                catcheur.subirFrappe(2.00);
+                this.hero.attaquer(catcheur);
                 System.out.println(" -Ptvie "+ catcheur.getNom()+" après l'attaque : "+
                     catcheur.getVie() ) ;
                 if (catcheur.getVie()<1) {
@@ -421,7 +421,7 @@ public class Interaction
                 }
                 System.out.println("Appuies  sur \"ENTER\" pour cotinuer le combat"); 
                 sc.nextLine();
-                this.hero.subirFrappe(1.00);
+                catcheur.attaquer(this.hero);
                 System.out.println("Tu viens de te faire attaquer par le catcheur");
                 System.out.println("Il te reste : "+
                     this.hero.getVie()+" points de vie" ) ;

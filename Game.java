@@ -204,7 +204,7 @@ public class Game
                     if (this.hero.possederUneRelique()) System.out.println("Mais il te manque encore 2 autres reliques.");
                     if (this.hero.possederDeuxRelique()) System.out.println("Mais il te manque encore 1 autre relique.");
                     else System.out.println("Mais tu n'as aucune relique");
-                    System.out.println("Reviens plus tard, un fois ques tu as les trois reliques");
+                    System.out.println("Reviens plus tard, une fois que tu as les trois reliques");
                     System.out.print("appuies sur \"ENTER\" pour cotinuer..."); 
                     sc.nextLine();
                 }  
@@ -218,7 +218,7 @@ public class Game
      * Affiche la Room courante et les issues possibles
      */
     private void afficherCourant() {
-        System.out.println("Vous êtes " +
+        System.out.println("Tu es " +
             carte.currentRoom.getDescription());
         System.out.print("Sorties: ");
         if (carte.currentRoom.northExit != null) {

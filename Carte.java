@@ -123,11 +123,11 @@ public class Carte
         while (obj7.equals(obj5) || obj7.equals(obj6))
             obj7 = new Relique();
         
-        Adversaire adv1 = new Monstre(7);
-        Adversaire adv2 = new Monstre(6);
-        while (adv2.equals(adv1)) adv2 = new Monstre(6);
-        Adversaire adv3 = new Catcheur(10);
-        Adversaire adv4 = new Catcheur("Satan", 10);
+        Adversaire adv1 = new Monstre(9);
+        Adversaire adv2 = new Monstre(8);
+        while (adv2.equals(adv1)) adv2 = new Monstre(9);
+        Adversaire adv3 = new Catcheur(11);
+        Adversaire adv4 = new Catcheur("Satan", 15);
         
         Room temp1 = carte.get(objClef[0]);        
         Room temp2 = carte.get(objClef[1]);

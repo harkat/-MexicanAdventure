@@ -149,7 +149,7 @@ public class Hero implements Personnage
             i++;
         }
         System.out.println();
-        System.out.println("  d'une valeur totale de " + val + " €");
+        System.out.println("d'une valeur totale de " + val + " €");
     }
 
     /**
@@ -166,12 +166,12 @@ public class Hero implements Personnage
 
     public void inventaire() {
         System.out.println("");
-        System.out.println("Vous avez : " + this.ptVie + " points de vie");
-        System.out.println("Votre score est de : " + this.score);
+        System.out.println("Tu as : " + this.ptVie + " points de vie");
+        System.out.println("Ton score est de : " + this.score);
         if (priseEstVide()) System.out.println("Tu n'as aucune relique");
         else
         {
-            System.out.println("Vous portez les reliques suivantes :");
+            System.out.println("Tu portes les reliques suivantes :");
             afficherPrise();             
             if (this.possederUneRelique()) System.out.println("Il te manque encore 2 autres reliques.");
             else if (this.possederDeuxRelique()) System.out.println("Il te manque encore 1 autre relique.");
