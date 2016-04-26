@@ -321,9 +321,9 @@ public class Interaction
                 str = sc.nextLine();
                 if (str.equals("oui")) {
                     this.hero.setInstrument(null);
-                    monstre.subirFrappe(monstre.getVie()/2);
+                    monstre.subirFrappe(monstre.getVie()- ((Instrument)instru).getDegat());
                     System.out.println("Grâçe à ton "+instru.getNom()+" le monstre "+monstre.getNom()+
-                        " a perdu la moitier\nde ses points de vie,");
+                        " a perdu \ndes points de vie en plus,");
                     System.out.println("  -Points de vie du monstre après l'utilisation de l'instrument : "+
                         monstre.getVie() ) ;
                 }
@@ -397,9 +397,9 @@ public class Interaction
                 str = sc.nextLine();
                 if (str.equals("oui")) {
                     this.hero.setInstrument(null);
-                    catcheur.subirFrappe(catcheur.getVie()/2);
+                    catcheur.subirFrappe(catcheur.getVie() - ((Instrument)instru).getDegat());
                     System.out.println("Grâçe à ton "+instru.getNom()+" le catcheur "+catcheur.getNom()+
-                        "a perdu la moitier\nde ses points de vie");
+                        "a perdu \ndes points de vie en plus");
                     System.out.println("Points de vie du catcheur après l'utilisation de l'instrument : "+
                         catcheur.getVie() ) ;
                 }

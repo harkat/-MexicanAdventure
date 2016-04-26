@@ -21,13 +21,13 @@ public class Instrument extends Objet
                 this.degat = 4;
                 break;
             case "un fouet" :
-                this.degat = 2;
+                this.degat = 5;
                 break;
             case "un sombrero" :
-                this.degat = 1;
+                this.degat = 4;
                 break;
             case "un poison" :
-                this.degat = 2;
+                this.degat = 6;
                 break;
             case "un couteau" :
                 this.degat = 3;
