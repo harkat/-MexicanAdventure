@@ -5,18 +5,17 @@ import javax.swing.*;
 public class Affichage extends JPanel
 {
 	private Carte carte;
-	private Room wildForest = new Room("à la foret sauvage");
-	private Room zoo = new Room("au zoo");
-	private Room casinoClub = new Room("au casino");
-	private Room satanFightArena = new Room("à l'arène finale " +
-            "de combat de Satan");
-	private Room bikersClub = new Room("au club des motards");
-	private Room circus = new Room("au cirque");
-	private Room frankLeBargeLab = new Room("au Laboratoire de FrankLeBarge");
-	private Room airplane = new Room("à l'aéroport");
-	private Room bar = new Room("au bar");
-	private Room shaolineDojo = new Room("au monastère Shaolin");
-	private Room ferryBoat = new Room("au ferryBoat");
+	private boolean wildForest;
+	private boolean zoo;
+	private boolean casinoClub;
+	private boolean satanFightArena;
+	private boolean bikersClub;
+	private boolean circus;
+	private boolean frankLeBargeLab;
+	private boolean airplane;
+	private boolean bar;
+	private boolean shaolineDojo;
+	private boolean ferryBoat;
 
 	public Affichage(Carte crt)
 	{
@@ -42,7 +41,7 @@ public class Affichage extends JPanel
 				g.fillRect(180, 85, 5, 27);
 				g.setColor(Color.black);
 				g.drawString("Foret sauvage", 55, 65);
-				wildForest.visible = true;
+				wildForest = true;
 				break;
 			case "au zoo" :
 				g.fillRect(50, 151, 130, 97);
@@ -50,7 +49,7 @@ public class Affichage extends JPanel
 				g.fillRect(180, 186, 5, 27);
 				g.setColor(Color.black);
 				g.drawString("Zoo", 55, 166);
-				zoo.visible = true;
+				zoo = true;
 				break;
 			case "au casino" :
 				g.fillRect(50, 252, 130, 97);
@@ -58,7 +57,7 @@ public class Affichage extends JPanel
 				g.fillRect(180, 287, 5, 27);
 				g.setColor(Color.black);
 				g.drawString("Casino", 55, 267);
-				casinoClub.visible = true;
+				casinoClub = true;
 				break;
 			case "à l'arène finale de combat de Satan" :
 				g.fillRect(50, 353, 130, 97);
@@ -66,7 +65,7 @@ public class Affichage extends JPanel
 				g.fillRect(180, 388, 5, 27);
 				g.setColor(Color.black);
 				g.drawString("L'arène finale", 55, 368);
-				satanFightArena.visible = true;
+				satanFightArena = true;
 				break;
 			case "au club des motards" :
 				g.fillRect(185, 50, 130, 97);
@@ -74,7 +73,7 @@ public class Affichage extends JPanel
 				g.fillRect(315, 85, 5, 27);
 				g.setColor(Color.black);
 				g.drawString("Club des motards", 190, 65);
-				bikersClub.visible = true;
+				bikersClub = true;
 				break;
 			case "au cirque" :
 				g.fillRect(185, 151, 130, 97);
@@ -83,7 +82,7 @@ public class Affichage extends JPanel
 				g.fillRect(235, 248, 30, 4);
 				g.setColor(Color.black);
 				g.drawString("Cirque", 190, 166);
-				circus.visible = true;
+				circus = true;
 				break;
 			case "au Laboratoire de FrankLeBarge" :
 				g.fillRect(185, 252, 130, 97);
@@ -93,7 +92,7 @@ public class Affichage extends JPanel
 				g.fillRect(235, 349, 30, 4);
 				g.setColor(Color.black);
 				g.drawString("Laboratoire", 190, 267);
-				frankLeBargeLab.visible = true;
+				frankLeBargeLab = true;
 				break;
 			case "à l'aéroport" :
 				g.fillRect(185, 353, 130, 97);
@@ -101,7 +100,7 @@ public class Affichage extends JPanel
 				g.fillRect(235, 349, 30, 4);
 				g.setColor(Color.black);
 				g.drawString("Aéroport", 190, 368);
-				airplane.visible = true;
+				airplane = true;
 				break;
 			case "au bar" :
 				g.fillRect(320, 50, 130, 97);
@@ -109,7 +108,7 @@ public class Affichage extends JPanel
 				g.fillRect(370, 147, 30, 4);
 				g.setColor(Color.black);
 				g.drawString("Bar", 325, 65);
-				bar.visible = true;
+				bar = true;
 				break;
 			case "au monastère Shaolin" :
 				g.fillRect(320, 151, 130, 97);
@@ -117,18 +116,18 @@ public class Affichage extends JPanel
 				g.fillRect(370, 147, 30, 4);
 				g.setColor(Color.black);
 				g.drawString("Monastère Shaolin", 325, 166);
-				shaolineDojo.visible = true;
+				shaolineDojo = true;
 				break;
 			case "au ferryBoat" :	
 				g.fillRect(320, 252, 130, 97);
 				g.fillRect(315, 287, 5, 27);
 				g.setColor(Color.black);
 				g.drawString("ferryBoat", 325, 267);
-				ferryBoat.visible = true;
+				ferryBoat = true;
 				break;
 		}
 		
-		if (wildForest.visible == true) {
+		if (wildForest == true) {
 			g.setColor(Color.white);
 			g.fillRect(50, 50, 130, 97);
 			g.fillRect(100, 147, 30, 4);
@@ -136,7 +135,7 @@ public class Affichage extends JPanel
 			g.setColor(Color.black);
 			g.drawString("Foret sauvage", 55, 65);
 		}
-		if (zoo.visible == true) {
+		if (zoo == true) {
 			g.setColor(Color.white);
 			g.fillRect(50, 151, 130, 97);
 			g.fillRect(100, 147, 30, 4);
@@ -144,7 +143,7 @@ public class Affichage extends JPanel
 			g.setColor(Color.black);
 			g.drawString("Zoo", 55, 166);
 		}
-		if (casinoClub.visible == true) {
+		if (casinoClub == true) {
 			g.setColor(Color.white);
 			g.fillRect(50, 252, 130, 97);
 			g.fillRect(100, 349, 30, 4);
@@ -152,7 +151,7 @@ public class Affichage extends JPanel
 			g.setColor(Color.black);
 			g.drawString("Casino", 55, 267);
 		}
-		if (satanFightArena.visible == true) {
+		if (satanFightArena == true) {
 			g.setColor(Color.white);
 			g.fillRect(50, 353, 130, 97);
 			g.fillRect(100, 349, 30, 4);
@@ -160,7 +159,7 @@ public class Affichage extends JPanel
 			g.setColor(Color.black);
 			g.drawString("L'arène finale", 55, 368);
 		}
-		if (bikersClub.visible == true) {
+		if (bikersClub == true) {
 			g.setColor(Color.white);
 			g.fillRect(185, 50, 130, 97);
 			g.fillRect(180, 85, 5, 27);
@@ -168,7 +167,7 @@ public class Affichage extends JPanel
 			g.setColor(Color.black);
 			g.drawString("Club des motards", 190, 65);
 		}
-		if (circus.visible == true) {
+		if (circus == true) {
 			g.setColor(Color.white);
 			g.fillRect(185, 151, 130, 97);
 			g.fillRect(180, 186, 5, 27);
@@ -177,7 +176,7 @@ public class Affichage extends JPanel
 			g.setColor(Color.black);
 			g.drawString("Cirque", 190, 166);
 		}
-		if (frankLeBargeLab.visible == true) {
+		if (frankLeBargeLab == true) {
 			g.setColor(Color.white);
 			g.fillRect(185, 252, 130, 97);
 			g.fillRect(180, 287, 5, 27);
@@ -187,7 +186,7 @@ public class Affichage extends JPanel
 			g.setColor(Color.black);
 			g.drawString("Laboratoire", 190, 267);
 		}
-		if (airplane.visible == true) {
+		if (airplane == true) {
 			g.setColor(Color.white);
 			g.fillRect(185, 353, 130, 97);
 			g.fillRect(180, 388, 5, 27);
@@ -195,7 +194,7 @@ public class Affichage extends JPanel
 			g.setColor(Color.black);
 			g.drawString("Aéroport", 190, 368);
 		}
-		if (bar.visible == true) {
+		if (bar == true) {
 			g.setColor(Color.white);
 			g.fillRect(320, 50, 130, 97);
 			g.fillRect(315, 85, 5, 27);
@@ -203,7 +202,7 @@ public class Affichage extends JPanel
 			g.setColor(Color.black);
 			g.drawString("Bar", 325, 65);
 		}
-		if (shaolineDojo.visible == true) {
+		if (shaolineDojo == true) {
 			g.setColor(Color.white);
 			g.fillRect(320, 151, 130, 97);
 			g.fillRect(315, 186, 5, 27);
@@ -211,7 +210,7 @@ public class Affichage extends JPanel
 			g.setColor(Color.black);
 			g.drawString("Monastère Shaolin", 325, 166);
 		}
-		if (ferryBoat.visible == true) {
+		if (ferryBoat == true) {
 			g.setColor(Color.white);
 			g.fillRect(320, 252, 130, 97);
 			g.fillRect(315, 287, 5, 27);

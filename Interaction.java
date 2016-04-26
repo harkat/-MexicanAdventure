@@ -307,7 +307,7 @@ public class Interaction
         Monstre monstre = (Monstre)this.curentRoom.adversaire ;
         Objet instru = (Objet)this.hero.getInstrument();
         System.out.println("Mauvaise nouvelle, le monstre : " + monstre.getNom()+
-            " t'as repéré ! \net Bonne nouvelle, si tu le bats tu purais récupurer la rélique qu'il possède");
+            " t'as repéré ! \net Bonne nouvelle, si tu le bats tu purais récupurer la rélique\nqu'il possède");
         System.out.println("Veux-tu combattre le monstre ou t'enfuire ?\n" +
             "(\"combattre\" : pour combattre)");
         System.out.print("(\"n'importe quelle touche\" : pour fuire)\n > ");
@@ -317,7 +317,7 @@ public class Interaction
             if (this.hero.getInstrument() != null ){                
                 System.out.println("T'as l'instrument  : " + instru.getNom());
                 System.out.print("Veux-tu l'utiliser pour combattre le monstre : " +monstre.getNom()+
-                    "( ? \"oui\" : pour ouais) : ");
+                    " ?\n( \"oui\" : pour ouais) : ");
                 str = sc.nextLine();
                 if (str.equals("oui")) {
                     this.hero.setInstrument(null);
@@ -393,7 +393,7 @@ public class Interaction
             if (this.hero.getInstrument() != null ){
                 System.out.println("T'as l'instrument  : " + instru.getNom());
                 System.out.print("Veux-tu l'utiliser pour combatre le Catcheur : " + catcheur.getNom()+
-                    " ? (\"oui\" : pour ouais) : ");
+                    " ?\n(\"oui\" : pour ouais) : ");
                 str = sc.nextLine();
                 if (str.equals("oui")) {
                     this.hero.setInstrument(null);
@@ -415,7 +415,7 @@ public class Interaction
                     catcheur.getVie() ) ;
                 if (catcheur.getVie()<1) {
                     System.out.println("Bravo! Le catcheur est batu");
-                    System.out.println("Appuies  sur \"ENTER\" pour cotinuer...");                     
+                    System.out.println("Appuies  sur \"ENTER\" pour continuer...");                     
                     sc.nextLine();
                     break ;
                 }
